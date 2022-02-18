@@ -1,0 +1,57 @@
+.formulario_lisproducts{
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-top: 130px;
+}
+
+.formulario{
+    float: left;
+    width: 49%;
+}
+
+.lisproducts{
+    float: right;
+    width: 49%;
+}
+
+.lisproducts_div{
+    padding: 15px 0;
+}
+
+.link_pago a{
+    text-decoration: none;
+    touch-action: manipulation;
+    user-select: none;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    font-family: GeforceB;
+    border-color: transparent;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 15px;
+    box-shadow: 0 0 0;
+    min-width: 170px;
+    line-height: 40px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #000000, rgb(34, 111, 173));
+}
+
+.link_pago a:hover{
+    background: linear-gradient(to right, rgb(34, 111, 173), #000000);
+}
+
+.link_pago a:active{
+    color: rgb(4, 247, 255);
+}
+
+.siesta{
+    width: 100%;
+    display: inline-block;
+    padding: 7.5px 0;
+}

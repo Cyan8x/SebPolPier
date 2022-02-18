@@ -1,0 +1,625 @@
+.carrito_Total {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+}
+
+@media (min-width: 576px){
+    .carrito_Total {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 768px){
+    .carrito_Total {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 992px){
+    .carrito_Total {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+}
+
+@media (min-width: 1200px){
+    .carrito_Total {
+        width: 1170px;
+        max-width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    .carrito_Total {
+        width: 1200px;
+    }
+}
+
+@media only screen and (min-width: 1400px){
+    .carrito_Total {
+        width: 1400px;
+    }
+}
+
+@media only screen and (min-width: 1500px){
+    .carrito_Total {
+        width: 1500px;
+    }
+}
+
+@media only screen and (min-width: 1600px){
+    .carrito_Total {
+        width: 1600px;
+    }
+}
+
+@media only screen and (min-width: 1770px){
+    .carrito_Total {
+        width: 1770px;
+    }
+}
+
+.row{
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+@media (min-width: 576px){
+    .row{
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+
+@media (min-width: 768px){
+    .row{
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+
+@media (min-width: 992px){
+    .row{
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+
+@media (min-width: 1200px){
+    .row{
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+
+.carrito_Total-div{
+    width: 100%;
+    padding: 0 15px!important;
+}
+
+.carrito_Total-div-div{
+    display: block;
+}
+
+.carrito_compra{
+    margin-bottom: 1rem;
+}
+
+.det_producto{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@media (min-width: 576px){
+    .det_producto{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+@media (min-width: 768px){
+    .det_producto{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+@media (min-width: 992px){
+    .det_producto{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+@media (min-width: 1200px){
+    .det_producto{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+.carrito_compra-comtenido {
+    margin-bottom: .75rem;
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 992px){
+    .carrito_compra-comtenido {
+        float: left;
+        width: 66%;
+    }
+}
+
+.carrito_compra-comtenido a{
+    text-decoration: none;
+}
+
+.carrito_compra-comtenido-div{
+    position: relative;
+    display: block;
+    margin-bottom: .75rem;
+    background-color: #fff;
+    box-shadow: 0 0 0;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+}
+
+.titulo{
+    padding: 1rem;
+}
+
+.titulo h1{
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: none;
+    color: rgb(34, 111, 173);
+    font-family: GeforceB;
+}
+
+.separador {
+    margin: 0;
+    border-color: #ebebeb;
+}
+
+.carrito{
+    padding: 1rem;
+}
+
+.carrito_lista{
+    margin-bottom: 0;
+    list-style: none;
+    padding-left: 0;
+}
+
+.lista_elemento{
+    padding: 1rem 0;
+    border-bottom: 1px solid #ebebeb;
+    min-height: 180px;
+}
+
+@media (min-width: 1051px) and (max-width: 1200px){
+    .lista_elemento{
+        min-height: 190px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1050px){
+    .lista_elemento{
+        min-height: 210px;
+    }
+}
+
+@media (min-width: 661px) and (max-width: 741px){
+    .lista_elemento{
+        min-height: 190px;
+    }
+}
+
+@media (min-width: 612px) and (max-width: 660px){
+    .lista_elemento{
+        min-height: 210px;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 611px){
+    .lista_elemento{
+        min-height: 220px;
+    }
+}
+
+@media (min-width: 466px) and (max-width: 500px){
+    .lista_elemento{
+        min-height: 265px;
+    }
+}
+
+@media (min-width: 371px) and (max-width: 465px){
+    .lista_elemento{
+        min-height: 620px;
+    }
+}
+
+@media (min-width: 100px) and (max-width: 370px){
+    .lista_elemento{
+        min-height: 550px;
+    }
+}
+
+.imagen_producto {
+    float: left;
+    width: 166px;
+    display: inline-block;
+}
+
+.imagen_producto span {
+    vertical-align: middle;
+}
+
+.img_prod-div-img {
+    border-style: none;
+    vertical-align: middle;
+    width: 166px;
+}
+
+@media (max-width: 465px){
+    .imagen_producto{
+        width: 100%;
+    }
+
+    .img_prod-div-img {
+        width: 100%;
+    }
+}
+
+.nom_precio{
+    float: left;
+    width: 40%;
+    display: inline-block;
+}
+
+@media (max-width: 1400px){
+    .nom_precio{
+        float: left;
+        width: 31%;
+    }
+}
+
+.nom_producto{
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.nom_producto a {
+    background-color: transparent;
+    touch-action: manipulation;
+    transition: all 300ms ease;
+    text-align: left;
+    white-space: inherit;
+    font-size: 16px;
+    color: #222;
+    line-height: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nom_producto a:hover{
+    color: rgb(34, 111, 173);
+}
+
+.nom_producto a:active{
+    color: rgb(0, 255, 221);
+}
+
+.precio_producto{
+    line-height: 1.1;
+    font-size: 1rem;
+    display: inline-block;
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.precio_producto-h5{
+    font-size: 25px;
+    color: #222;
+    font-family: GeforceB;
+}
+
+.cantTotal_precioTotal {
+    float: left;
+    width: 40%;
+}
+
+.cantTotal_precioTotal-div {
+    float: left;
+    width: 80%;
+}
+
+
+
+.cantTotal {
+    float: left;
+    width: 30%;
+    display: inline-block;
+    justify-content: center;
+}
+
+@media (min-width: 768px){
+    .cantTotal {
+        float: left;
+        width: 30%;
+    }
+}
+
+.cantTotal_div{
+    border-collapse: separate;
+    position: relative;
+    width: auto;
+    box-shadow: 0 0 0;
+    text-align: center;
+}
+
+.boton_menos button{
+    width: 3rem;
+    font-size: 18px;
+}
+
+.boton_mas button{
+    width: 3rem;
+    font-size: 18px;
+    font-family: GeforceB;
+}
+
+.cantTotal_div input{
+    height: 2.5rem;
+    width: 3rem;
+    border: 1px solid #a0a0a0;
+    text-align: center;
+}
+
+.precioTotal{
+    float: left;
+    width: 70%;
+    color: #222;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+@media (min-width: 768px){
+    .precioTotal {
+        float: left;
+        width: 70%;
+    }
+}
+
+.precioTotal-div{
+    display: inline-block;
+    color: #222;
+}
+
+.precioTotal-div h5{
+    font-size: 16px;
+    font-family: GeforceB;
+}
+
+.elim_producto{
+    float: left;
+    width: 4%;
+    text-align: right!important;
+    margin: 0 15px;
+}
+
+.elim_producto div{
+    color: #222;
+    line-height: 36px;
+    font-weight: 500;
+}
+
+.elim{
+    transition: all 300ms ease;
+    color: #232323;
+    display: inline-block;
+    margin-top: .3125rem;
+    font-size: 20px;
+}
+
+.elim:hover{
+    color: rgb(34, 111, 173);
+}
+
+.elim i:hover{
+    color: rgb(34, 111, 173);
+}
+
+.elim:active{
+    color: rgb(0, 255, 221);
+}
+
+.elim i:active{
+    color: rgb(0, 255, 221);
+}
+
+@media (min-width: 466px) and (max-width: 610px){
+    .nom_precio{
+        width: 60%;
+    }
+
+    .cantTotal_precioTotal{
+        width: 60%;
+    }
+}
+
+@media (min-width: 100px) and (max-width: 465px){
+    .nom_precio{
+        width: 100%;
+    }
+
+    .cantTotal_precioTotal{
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px){
+    .cantTotal_precioTotal{
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+.arts-monto-venta_final{
+    float: left;
+    width: 100%;
+}
+
+@media (min-width: 992px){
+    .arts-monto-venta_final{
+        float: left;
+        width: 34%;
+    }
+}
+
+.arts-monto-venta_final-div{
+    position: relative;
+    display: block;
+    background-color: #fff;
+    box-shadow: 0 0 0;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.arts_precioTotal{
+    padding: 0;
+}
+.arts_precioTotal-div{
+    clear: both;
+    margin-bottom: 0;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 10px 0;
+}
+
+.articulosTotal{
+    display: inline-block;
+    text-align: left;
+    font-size: 20px;
+    padding-left: 0;
+    font-weight: 400;
+    white-space: inherit;
+    color: #363a42;
+}
+
+.precioArticulos{
+    color: #232323;
+    float: right;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.montoFinal{
+    padding: 0;
+}
+
+.montoFinal div{
+    border-bottom: 1px solid #e1e1e1;
+    clear: both;
+    margin-bottom: 0;
+    background-color: #fff;
+    padding: 10px 0;
+}
+
+.labe{
+    display: inline-block;
+    text-align: left;
+    padding-left: 0;
+    white-space: inherit;
+    color: #363a42;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.valor{
+    display: inline-block;
+    color: #232323;
+    float: right;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.venta{
+    padding: 0;
+    padding-bottom: 1.75rem;
+    padding-top: 0;
+    margin-top: 1rem;
+}
+
+.venta-div {
+    text-align: center!important;
+}
+
+.venta-div a{
+    text-decoration: none;
+    touch-action: manipulation;
+    user-select: none;
+    border: 1px solid transparent;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    font-family: GeforceB;
+    border-color: transparent;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 15px;
+    box-shadow: 0 0 0;
+    min-width: 170px;
+    line-height: 40px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #000000, rgb(34, 111, 173));
+}
+
+.venta-div a:hover{
+    background: linear-gradient(to right, rgb(34, 111, 173), #000000);
+}
+
+.venta-div a:active{
+    color: rgb(4, 247, 255);
+}
+
+.seguir_compr{
+    width: 100%;
+    display: inline-block;
+}
+
+.seguir_compr div{
+    text-align: center;
+}
+
+.SegCom{
+    color: rgb(34, 111, 173);
+    transition: all .5s;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.SegCom:hover{
+    color: rgb(0, 255, 221);
+}
+
+.SegCom:active{
+    color: rgb(0, 189, 164);
+}

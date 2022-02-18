@@ -1,0 +1,108 @@
+.tittle{
+    height: 124px;
+}
+
+.tittle_div{
+    max-width: 1200px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.tittle_div div{
+    margin: 0 auto;
+    font-size: 30px;
+    text-align: center;
+    color: rgb(34, 111, 173);
+    font-family: GeforceB;
+    margin-top: 90px;
+}
+
+.titulo{
+    font-size: 100px;
+    margin: 20px 0;
+    text-shadow: -2px 2px 0 #ffffff, -14px 7px 0 #0a0e27;
+}
+
+@media screen and (max-width: 900px){
+    .titulo{
+        font-size: 70px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 600px){
+    .titulo{
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 399px){
+    .titulo{
+        font-size: 30px;
+    }
+}
+
+.tarjetas{
+    max-width: 1200px;
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    padding-bottom: 7px;
+}
+
+.tarjetas_div{
+    flex: 1;
+    margin: 7px;
+    min-width: 250px;
+    padding: 5px;
+    background: rgb(255, 255, 255);
+}
+
+
+.tarjetas_img{
+    position: relative;
+    overflow: hidden;
+}
+
+.tarjetas_img img{
+    object-fit: cover;
+}
+
+.tarjetas_nomPrecio{
+    color: rgb(0, 0, 0);
+}
+
+.tarjetas_nomPrecio h2{
+    font-family: GeforceB;
+    color: rgb(34, 111, 173);
+    text-align: center;
+    transition: all 0.5s;
+    font-size: 19px;
+}
+
+.tarjetas_nomPrecio h2:hover{
+    color: rgb(0, 255, 255);
+}
+
+.tarjetas_nomPrecio h2:active{
+    color: rgb(3, 179, 179);
+}
+
+.a_img{
+    transition: all 1s;
+}
+
+.tarjetas_img:hover .a_img{
+    -webkit-transform:scale(1.12);
+    transform:scale(1.12);
+}
+
+.tarjetas_nomPrecio p{
+    text-align: center;
+    font-size: 17px;
+    font-family: GeforceB;
+    padding-top: 10px;
+}
+
+.tarjetas_nomPrecio a{
+    text-decoration: none;
+}

@@ -1,0 +1,95 @@
+.body_div{
+    max-width: 1200px;
+    margin: 110px auto;
+    margin-bottom: 30px;
+}
+
+.body_div div{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img_product{
+    margin: 10px;
+    min-width: 150px;
+    text-align: center;
+    flex-grow: 1;
+    width: 400px;
+}
+.img_product img{
+    width: 100%;
+}
+
+.det_producto{
+    margin: 5px;
+    min-width: 150px;
+    flex-grow: 3;
+    width: 400px;
+}
+
+.det_producto div{
+    display: block;
+}
+
+.det_producto-h2{
+    font-size: 43px;
+    font-family: GeforceB;
+    text-align: center;
+    padding-top: 15px;
+    color: rgb(34, 111, 173);
+    text-shadow: -2px 2px 0 #ffffff, -14px 7px 0 #0a0e27;
+}
+
+.p1{
+    font-family: GeforceB;
+    font-size: 30px;
+    padding: 15px 0;
+}
+
+.p2{
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+
+.submit{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 13px;
+}
+
+.submit_div{
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    border-radius: 40px 5px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.button{
+    background: linear-gradient(to right, #000000, rgb(34, 111, 173));
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    font-family: GeforceB;
+    text-decoration: none;
+    transition: all .5s;
+}
+
+.button:hover{
+    background: linear-gradient(to right, rgb(34, 111, 173), #000000);
+}
+
+.button:active{
+    color: rgb(4, 247, 255);
+}
+

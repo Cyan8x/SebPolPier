@@ -1,0 +1,183 @@
+@font-face{
+    font-family: GeforceB;
+    src: url(../FontFamily/GeForce/Geforce\ Bold.ttf);
+}
+
+@font-face{
+    font-family: GeforceL;
+    src: url(../FontFamily/GeForce/Geforce\ Light.ttf);
+}
+
+body{
+    color: white;
+    background: linear-gradient(to right, #000000, rgb(34, 111, 173));
+    font-family: GeforceL,Helvetica,Arial,Sans-Serif;
+}
+
+input {
+    outline: none;
+    border: none;
+}
+
+.container_register{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.register{
+    width: 400px;
+    background: #eceff1;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 55px;
+}
+
+.registerform{
+    width: 100%;
+}
+
+.loginform_titulo{
+    display: block;
+    font-size: 38px;
+    color: rgb(34, 111, 173);
+    line-height: 1.5;
+    text-align: center;
+    font-family: GeforceB;
+    margin: 5px 0;
+}
+
+.div_input{
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin-bottom: 5px;
+}
+
+.input{
+    font-size: 25px;
+    color: #555555;
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    padding: 0 5px;
+}
+
+@media only screen and (max-width: 406px){
+    .input{
+        font-size: 15px;
+    }
+}
+
+.div_esp{
+    position: absolute;
+    z-index: 1000;
+    float: left;
+    background-color: rgb(255, 91, 91);;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,0.15);
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    top: -50px;
+    left: 70px;
+    max-width: 320px;
+    padding: 10px;
+    font-size: 15px;
+    border-color: transparent;
+    transition: .25s ease-out;
+    visibility: hidden;
+    color: #ffffff;
+}
+
+.esp:hover > .div_esp{
+    visibility: visible;
+}
+
+@media only screen and (max-width: 320px){
+    .div_esp{
+        left: 40px;
+        padding: 5px;
+    }
+}
+
+.submit{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 13px;
+}
+
+.submit_div{
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    border-radius: 40px 5px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.button{
+    background: linear-gradient(to right, #000000, rgb(34, 111, 173));
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    font-family: GeforceB;
+    transition: all .5s;
+}
+
+.button:hover{
+    background: linear-gradient(to right, rgb(34, 111, 173), #000000);
+}
+
+.button:active{
+    color: rgb(4, 247, 255);
+}
+
+.regtext_p{
+    color: #000000;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.regtext_p a{
+    text-decoration: none;
+    font-family: GeforceB;
+    color: rgb(34, 111, 173);
+}
+
+.regtext_p a:hover{
+    color: rgb(0, 255, 191);
+}
+
+.regtext_p a:active{
+    color: rgb(0, 161, 121);
+}
+
+.error{
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.719);
+    text-align: center;
+    color: #000000;
+    margin-top: 15px;
+    color: rgb(255, 0, 0);
+    font-family: GeforceB;
+    margin: 15px;
+}
+
+
+
+
+
