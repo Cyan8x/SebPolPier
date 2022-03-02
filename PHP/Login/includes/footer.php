@@ -15,7 +15,6 @@
                     <li class="nav_priv_li"><a href="#"><i class="fab fa-twitch"></i></a></li>
                     <li class="nav_priv_li"><a href="#"><i class="fab fa-youtube-square"></i></i></a></li>
                     <li class="nav_priv_li esp"><b>SebPolPier_345@hotmail.com</b></li>
-                    <li class="nav_priv_li"><a href="./../PHP/Login/admin/Principal/login_admin.php"><i class="fas fa-users-cog"></i></i></i></a></li>
                 </ul>
                 <span>Copyright &copy; 2021 || SebPolPier Corporation.</span>
             </div>

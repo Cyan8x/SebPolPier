@@ -127,37 +127,28 @@
     text-align: center;
 }
 
-.global_marcas{
-    list-style: outside none none;
-    padding: 0;
-    font-size: 0;
-    overflow: scroll;
-    overflow-y: hidden;
-    list-style-position: inside;
-    left: 0;
-    right: 0;
-    white-space: nowrap;
-    overflow-x: visible;
+.global-marcas{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.glide__slide{
     text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-bottom: 20px;
 }
 
-.Marcas{
-    flex-wrap: wrap;
-    padding-bottom: 7px;
+.glide__slide div{
+    width: 100%;
+    height: 300px;
 }
 
-.Marcas_div{
-    margin: 7px;
-    min-width: 300px;
-    padding: 5px;
-    display: inline-block;
-}
-
-.Marcas_div img{
-    height: 200px;
+.glide__slide div img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .tarjetas{

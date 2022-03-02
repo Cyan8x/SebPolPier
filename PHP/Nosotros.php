@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/base.css">
+    <link rel="stylesheet" href="../CSS/base1.css">
     <link rel="stylesheet" href="../CSS/Nosotross.css">
     <link rel="stylesheet" href="../CSS/normalize.css">
     <link rel="shortcut icon" href="../imagenes/S.jpg">
@@ -15,7 +15,7 @@
 
 <body>
     <?php
-    include("Login/includes/header.php")
+    include("Login/includes/header1.php")
     ?>
     <div class="title">
         <div class="tittle_div">

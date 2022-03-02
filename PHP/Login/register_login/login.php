@@ -30,13 +30,19 @@
             $query->execute();
             $result = $query->fetch(PDO::FETCH_ASSOC);
             if (!$result) {
-                echo '<p class = "error">La combinacion del usuario y la contraseña son inválidos</p>';
+                echo '<p class = "error">Usuario no existe.</p>';
             } else {
                 if (password_verify($contraseña, $result['contraseña'])) {
-                    $_SESSION['session_usuario'] = $usuario;
-                    header("Location: ../../../../SebPolPier/PHP/index.php");
+                    if ($result['adminis'] == 1) {
+                        echo '<p class = "error">no funciona</p>';
+                        $_SESSION['session_usuario'] = $usuario;
+                        header("Location: ../../../../SebPolPier/PHP/index.php");
+                    }else if($result['adminis'] == 0){
+                        $_SESSION['session_admin'] = $usuario;
+                        header("Location: ../../../../SebPolPier/PHP/Login/admin/Principal/index.php");
+                    }
                 } else {
-                    $message = "Nombre de usuario o contraseña invalida";
+                    $message = "Contraseña invalida";
                 }
             }
         } else {

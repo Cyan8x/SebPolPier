@@ -5,10 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/base.css">
-    <link rel="stylesheet" href="../CSS/index12.css">
+    <!-- Glide -->
+    <link rel="stylesheet" href="./../CSS/glide.core.min.css">
+    <link rel="stylesheet" href="./../CSS/glide.theme.min.css">
+    <!-- Base -->
+    <link rel="stylesheet" href="../CSS/base1.css">
+    <!-- Personal -->
+    <link rel="stylesheet" href="../CSS/index.css">
+    <!-- Normalize -->
     <link rel="stylesheet" href="../CSS/normalize.css">
+    <!-- Icon -->
     <link rel="shortcut icon" href="../imagenes/S.jpg">
+    <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/4c62087cc0.js" crossorigin="anonymous"></script>
     <title>SebPolPier</title>
 </head>
@@ -58,8 +66,6 @@
         <nav class="nav">
             <ul class="nav__ul">
                 <div>
-                    <li class="nav__li pad0"><a href="#marcas"><i class="fas fa-trademark"></i>Marcas</a></li>
-                    <li class="nav__li"><a href="#ultimaTendencia"><i class="fas fa-microchip"></i>Ultima Tendencia</a></li>
                     <li class="nav__li"><a href="Nosotros.php"><i class="fas fa-users"></i>Nosotros</a></li>
                     <li class="nav__li product"><a href="#"><i class="fab fa-accusoft"></i>Productos</a>
                         <ul class="submenu">
@@ -75,8 +81,6 @@
                     <div class="nav__responsive-button  fas fa-bars"></div>
                 </div>
                 <div class="nav__li-container">
-                    <li class="nav__responsive-li"><a href="#marcas"><i class="fas fa-trademark"></i>Marcas</a></li>
-                    <li class="nav__responsive-li"><a href="#ultimaTendencia"><i class="fas fa-microchip"></i>Ultima Tendencia</a></li>
                     <li class="nav__responsive-li"><a href="Nosotros.php"><i class="fas fa-users"></i>Nosotros</a></li>
                     <li class="nav__responsive-li product"><a href="#"><i class="fab fa-accusoft"></i>Productos</a>
                         <ul class="submenu">
@@ -89,11 +93,6 @@
             </ul>
         </nav>
     </header>
-    <div class="sub_nav">
-        <div class="sub_nav_div">
-            <p>BUSCAR VENTAS</p>
-        </div>
-    </div>
     <div class="title">
         <div class="tittle_div">
             <div>
@@ -127,28 +126,52 @@
             </div>
         </div>
     </div>
-    <div class="global_marcas" id="marcas">
-        <div class="Marcas">
-            <div class="Marcas_div">
-                <img src="../imagenes/intel.jpg" alt="Intel">
+    <div class="global-marcas">
+        <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
+                    <li class="glide__slide">
+                        <div>
+                            <img src="../imagenes/intel.jpg" alt="Intel">
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                            <img src="../imagenes/AMD1.jpg" alt="AMD">
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                            <img src="../imagenes/Nvidia.jpg" alt="Nvidia">
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                            <img src="../imagenes/Aorus1.jpg" alt="AORUS">
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                            <img src="../imagenes/Asus.jpg" alt="Asus">
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                            <img src="../imagenes/Gygabyte.jpg" alt="Gigabyte">
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                            <img src="../imagenes/MSI.jpg" alt="MSI">
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div class="Marcas_div">
-                <img src="../imagenes/AMD1.jpg" alt="AMD">
-            </div>
-            <div class="Marcas_div">
-                <img src="../imagenes/Nvidia.jpg" alt="Nvidia">
-            </div>
-            <div class="Marcas_div">
-                <img src="../imagenes/Aorus1.jpg" alt="AORUS">
-            </div>
-            <div class="Marcas_div">
-                <img src="../imagenes/Asus.jpg" alt="Asus">
-            </div>
-            <div class="Marcas_div">
-                <img src="../imagenes/Gygabyte.jpg" alt="Gigabyte">
-            </div>
-            <div class="Marcas_div">
-                <img src="../imagenes/MSI.jpg" alt="MSI">
+            <div class="glide__arrows" data-glide-el="controls">
+                <button style="
+                transform: scaleX(1);" class="glide__arrow glide__arrow--left" data-glide-dir="<"></button>
+                <button style="
+                transform: scaleX(-1);" class="glide__arrow glide__arrow--right" data-glide-dir=">"></button>
             </div>
         </div>
     </div>
@@ -189,6 +212,24 @@
             ?>
         </div>
     </div>
+    <!-- Glide JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script>
+        const config = {
+            type: 'carousel',
+            perView: 4,
+            autoplay: 2000,
+            breakpoints: {
+                900: {
+                    perView: 2
+                },
+                600:{
+                    perView:1
+                }
+            }
+        }
+        new Glide('.glide', config).mount()
+    </script>
     <?php
     include("Login/includes/footer.php")
     ?>

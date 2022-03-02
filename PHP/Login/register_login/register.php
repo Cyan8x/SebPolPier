@@ -51,7 +51,7 @@
                             echo '<p class = "error">El correo electrónico ingresado ya se encuentra registrado</p>';
                         }
                         if ($query->rowCount() == 0) {
-                            $query = $connection->prepare("INSERT INTO usuarios(USUARIO,EMAIL,NOMBRES,APELLIDOS,CONTRASEÑA,DNI,DIRECCION,CIUDAD,TELEFONO) VALUES (:usuario,:email,:nombres,:apellidos,:contrasena_hash,:dni,:direccion,:ciudad,:telefono)");
+                            $query = $connection->prepare("INSERT INTO usuarios(USUARIO,EMAIL,NOMBRES,APELLIDOS,CONTRASEÑA,DNI,DIRECCION,CIUDAD,TELEFONO,ADMINIS) VALUES (:usuario,:email,:nombres,:apellidos,:contrasena_hash,:dni,:direccion,:ciudad,:telefono,1)");
                             $query->bindParam("nombres", $nombres, PDO::PARAM_STR);
                             $query->bindParam("apellidos", $apellidos, PDO::PARAM_STR);
                             $query->bindParam("usuario", $usuario, PDO::PARAM_STR);

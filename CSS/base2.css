@@ -14,7 +14,138 @@ body{
     font-family: GeforceL,Helvetica,Arial,Sans-Serif;
 }
 
-.header{
+/*? HEADER */
+
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.nav1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+}
+
+.sebpolpier{
+    display: block;
+    width: 120px;
+    text-decoration: none;
+    margin: 10px 40px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+    transition: all 0.4s;
+}
+
+.sebpolpier:hover{
+    box-shadow: 4px 4px 4px rgb(34, 111, 173,0.7);
+}
+
+.login {
+    padding: 10px 40px;
+}
+
+.login a{
+    text-decoration: none;
+    font-family: GeforceB;
+    font-size: 25px;
+    color: rgb(34, 111, 173);
+    transition: all 0.4s;
+}
+
+.login a:hover{
+    color:  rgb(1, 144, 125);
+}
+
+.login a:active{
+    color: rgb(1, 144, 125,0.6);
+}
+
+nav{
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+}
+
+nav ul{
+    width: 100%;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    text-align: center;
+}
+
+nav ul li{
+    margin: 5px;
+    padding: 5px 30px;
+    width: 200px;
+}
+
+nav ul li a{
+    display: block;
+    padding: 10px;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+nav ul li a i{
+    padding-right: 10px;
+}
+
+nav ul li a:hover{
+    background: rgb(34, 111, 173);
+}
+
+nav ul li a:active{
+    background: rgb(34, 111, 173,0.7);
+}
+
+.ham{
+    display: none;
+}
+
+.subnav{
+    display: none;
+    margin: 10px;
+    width: 200px;
+    position: absolute;
+    background: rgb(0, 0, 0,0.7);
+    transition: 0.4s;
+    animation: showSubnav 350ms ease-in-out both;
+}
+
+.products:hover > .subnav{
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes showSubnav{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes quitSubnav{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+
+
+/* .header{
     position: fixed;
     top: 0;
     right: 0;
@@ -63,9 +194,17 @@ body{
 
 .login a{
     text-decoration: none;
-    color: #ff9d00;
+    color: rgb(34, 111, 173);
     font-size: 25px;
     font-family: GeforceB;
+}
+
+.login a:hover{
+    color:  rgb(1, 144, 125);
+}
+
+.login a:active{
+    color: rgb(1, 144, 125,0.6);
 }
 
 .Bienvenido_div a{
@@ -88,12 +227,6 @@ body{
 }
 
 .icon i{
-    /* speak: none;
-    font-style: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased; */
     font-size: 25px;
 }
 
@@ -101,7 +234,6 @@ body{
     color: #fff;
     font-size: 13px;
     position: absolute;
-    /* right: 2px; */
     top: 0;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
@@ -148,29 +280,6 @@ body{
     color: rgb(34, 111, 173);
 }
 
-.login a:hover{
-    color:  rgb(1, 144, 125);
-}
-
-.login a:active{
-    color: rgb(34, 111, 173);
-}
-
-@media only screen and (max-width: 550px){
-    .Bienvenido h2{
-        padding-top: 12px;
-        font-size: 18px;
-    }
-}
-
-@media screen and (max-width: 395px){
-    .Bienvenido h2{
-        padding-top: 3px;
-        text-align: right;
-        font-size: 18px;
-    }
-}
-
 .nav__responsive-ul{
     display: none;
 }
@@ -209,19 +318,19 @@ body{
 }
 
 .nav__li:hover > a{
-    color: rgb(138, 255, 239);
+    color: rgb(115, 192, 255);
 }
 
 .nav__li:hover > i{
-    color: rgb(138, 255, 239);
+    color: rgb(115, 192, 255);
 }
 
 .nav__li:active > a{
-    color: rgba(138, 255, 239, 0.65);
+    color: rgba(138, 255, 239);
 }
 
 .nav__li:active > i{
-    color: rgba(138, 255, 239, 0.65);
+    color: rgba(138, 255, 239);
 }
 
 .nav__responsive-button-container{
@@ -274,6 +383,85 @@ body{
 
 .product:hover > .submenu{
     visibility: visible;
+} */
+
+/*? FOOOTER */
+
+.global_footer{
+    background-color: white;
+    color: black;
+    height: 100%;
+}
+
+.global_footer_div{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.div_img img{
+    width: 125px;
+    height: 50px;
+    margin: 0 auto;
+    display: block;
+    float: left;
+    margin-bottom: 15px;
+}
+
+.region{
+    height: 50px;
+    text-align: center;
+    float: right;
+    margin-bottom: 15px;
+}
+
+.region a{
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-family: GeforceB;
+}
+
+.nav_privacidad{
+    font-size: 20px;
+    list-style-type: none;
+    clear: both;
+    margin-bottom: 15px;
+}
+
+.nav_priv_li{
+    display: inline-block   ;
+    padding: 12px;
+    color: black;
+}
+
+.li{
+    padding-left: 0px;
+}
+
+.nav_priv_li a{
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    height: 44px;
+    font-size: 44px;
+}
+
+/*? RESPONSIVE */
+
+@media only screen and (max-width: 550px){
+    .Bienvenido h2{
+        padding-top: 12px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 395px){
+    .Bienvenido h2{
+        padding-top: 3px;
+        text-align: right;
+        font-size: 18px;
+    }
 }
 
 @media only screen and (max-width: 600px){
@@ -336,66 +524,6 @@ body{
     .submenu{
         padding: 10px;
     }
-}
-
-.global_footer{
-    background-color: white;
-    color: black;
-    height: 100%;
-}
-
-.global_footer_div{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 30px;
-}
-
-.div_img img{
-    width: 125px;
-    height: 50px;
-    margin: 0 auto;
-    display: block;
-    float: left;
-    margin-bottom: 15px;
-}
-
-.region{
-    height: 50px;
-    text-align: center;
-    float: right;
-    margin-bottom: 15px;
-}
-
-.region a{
-    text-decoration: none;
-    color: black;
-    font-size: 25px;
-    font-family: GeforceB;
-}
-
-.nav_privacidad{
-    font-size: 20px;
-    list-style-type: none;
-    clear: both;
-    margin-bottom: 15px;
-}
-
-.nav_priv_li{
-    display: inline-block   ;
-    padding: 12px;
-    color: black;
-}
-
-.li{
-    padding-left: 0px;
-}
-
-.nav_priv_li a{
-    text-decoration: none;
-    color: black;
-    display: inline-block;
-    height: 44px;
-    font-size: 44px;
 }
 
 @media only screen and (max-width: 300px){
