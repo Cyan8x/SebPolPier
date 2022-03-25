@@ -1,0 +1,171 @@
+.main{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 150px;
+}
+
+/*? TITULO */
+
+.title{
+    width: 100%;
+}
+
+.title h1{
+    text-align: center;
+    font-size: 160px;
+    margin: 0;
+    font-family: GeforceB;
+    color: rgb(34, 111, 173);
+    text-shadow: -2px 2px 0 #ffffff, -14px 7px 0 #0a0e27;
+}
+
+/*? BANNER */
+
+.imgPrincipal{
+    width: 100%;
+    text-align: center;
+}
+
+.imgPrincipal img{
+    border-radius: 50px;
+    border: 4px solid rgb(34, 111, 173);
+    transform: scale(1);
+    transition: all 500ms ease-in-out;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+}
+
+.text{
+    opacity: 0;
+    font-size: 20px;
+    transition: all 500ms ease-in-out;
+    transform: translate(0px);
+}
+
+.imgPrincipal:hover > .imgx{
+    transform: scale(0.85);
+}
+
+.imgPrincipal:hover > .text{
+    transform: translate(0px,-20px);
+    opacity: 1;
+}
+
+/*? INFO */
+
+.info{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.fundadores, .quienes, .foot1{
+    width: 100%;
+    margin: 20px 0;
+}
+
+.fundadores h2{
+    color: rgb(34, 111, 173);
+    font-family: GeforceB;
+    font-size: 40px;
+}
+
+.fundadores ul{
+    margin: 10px 0;
+    margin-left: 50px;
+    font-size: 23px;
+}
+
+.quienes h2{
+    color: rgb(34, 111, 173);
+    font-family: GeforceB;
+    font-size: 40px;
+}
+
+.quienes p{
+    margin: 10px 0;
+    margin-left: 25px;
+    text-align: justify;
+    font-size: 23px;
+}
+
+.foot1{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.foot1 aside h3{
+    color: rgb(34, 111, 173);
+    font-family: GeforceB;
+    font-size: 40px;
+}
+
+.foot1 aside p{
+    margin: 10px 0;
+    margin-left: 25px;
+    text-align: justify;
+    font-size: 23px;
+}
+
+/*? RESPONSIVE */
+
+@media (max-width:999px){
+    .text{
+        padding-top: 10px;
+        font-size: 18px;
+    }
+
+    .title h1{
+        font-size: 100px;
+    }
+
+    .fundadores ul, .quienes p, .foot1 aside p{
+        font-size: 20px;
+    }
+}
+
+@media (max-width:799px){
+    .imgPrincipal img{
+        border-radius: 30px;
+    }
+
+    .title h1{
+        font-size: 70px;
+    }
+
+    .fundadores ul, .quienes p, .foot1 aside p{
+        font-size: 18px;
+    }
+
+    .foot1{
+        grid-template-columns: auto;
+        grid-template-rows: repeat(2,1fr);
+    }
+}
+
+@media (max-width:599px){
+    .imgPrincipal img{
+        border-radius: 20px;
+    }
+
+    .title h1{
+        font-size: 50px;
+    }
+}
+
+@media (max-width:399px){
+    .imgPrincipal img{
+        border-radius: 10px;
+    }
+
+    .title h1{
+        font-size: 30px;
+        text-shadow: -1px 1px 0 #ffffff, -7px 4px 0 #0a0e27;
+    }
+
+    .fundadores h2, .quienes h2, .foot1 aside h3{
+        font-size: 20px;
+    }
+
+    .fundadores ul, .quienes p, .foot1 aside p{
+        font-size: 15px;
+    }
+}

@@ -1,1 +1,0 @@
-const $linkProducts = document.querySelector("")

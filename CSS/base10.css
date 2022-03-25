@@ -1,0 +1,421 @@
+@font-face{
+    font-family: GeforceB;
+    src: url(../FontFamily/GeForce/Geforce\ Bold.ttf);
+}
+
+@font-face{
+    font-family: GeforceL;
+    src: url(../FontFamily/GeForce/Geforce\ Light.ttf);
+}
+
+body{
+    color: white;
+    background: linear-gradient(to right, #000000, rgb(9, 65, 110));
+    font-family: GeforceL,Helvetica,Arial,Sans-Serif;
+}
+
+/*? HEADER */
+
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.nav1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(255, 255, 255,0.95);
+    transition: all 0.4s;
+}
+
+.sebpolpier{
+    display: block;
+    cursor: pointer;
+    width: 120px;
+    text-decoration: none;
+    margin: 10px 40px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+    transition: all 0.4s;
+}
+
+.sebpolpier:hover{
+    box-shadow: 4px 4px 4px rgb(34, 111, 173,0.7);
+}
+
+.login {
+    padding: 10px 40px;
+}
+
+.login a{
+    text-decoration: none;
+    font-family: GeforceB;
+    font-size: 25px;
+    color: rgb(34, 111, 173);
+    transition: all 0.4s;
+}
+
+.login a:hover{
+    color:  rgb(1, 144, 125);
+}
+
+.login a:active{
+    color: rgb(1, 144, 125,0.6);
+}
+
+nav{
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    transition: all 0.4s;
+}
+
+nav ul{
+    width: 100%;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    text-align: center;
+}
+
+nav ul li{
+    margin: 5px;
+    padding: 5px 30px;
+    width: 223px;
+}
+
+nav ul li a, nav ul li div{
+    display: block;
+    padding: 10px;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+nav ul li a i, nav ul li div i{
+    padding-right: 10px;
+}
+
+nav ul li a:hover, nav ul li div:hover{
+    background: rgb(34, 111, 173);
+    color: #fff;
+}
+
+nav ul li a:active, nav ul li div:active{
+    background: rgb(34, 111, 173,0.7);
+}
+
+.ham{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px;
+    border-radius: 5px;
+    margin: 20px 40px 0 0;
+}
+
+.ham div{
+    font-size: 35px;
+}
+
+.subnav{
+    display: none;
+    margin: 10px;
+    width: 200px;
+    position: absolute;
+    background: rgb(0, 0, 0,0.7);
+    transition: 0.4s;
+    animation: showSubnav 350ms ease-in-out both;
+}
+
+@keyframes showSubnav{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.Da{
+    color: #e3da59 !important;
+}
+
+.Ua{
+    display: none;
+    color: #e3da59 !important;
+}
+
+.flechasIJs{
+    display: inline-block;
+}
+
+.flechasDJs{
+    display: none;
+}
+
+.showSubnavJs{
+    display: flex;
+    flex-direction: column;
+}
+
+.showNav1Js{
+    top: 0 !important;
+}
+
+.showNav2Js{
+    top: 122px !important;
+}
+
+.showNav2Js2{
+    top: 228px !important;
+}
+
+.user{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.user h3{
+    color: #226fad;
+    padding-right: 55px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.user h3:hover{
+    color:  rgb(1, 144, 125);
+}
+
+.user h3:active{
+    color: rgb(1, 144, 125,0.6);
+}
+
+.down{
+    color: #ea5555;
+}
+
+.up{
+    color: #ea5555;
+    display: none;
+}
+
+.downJs{
+    display: none;
+}
+
+.upJs{
+    display: inline-block;
+}
+
+.user h3 ul{
+    list-style: none;
+    position: absolute;
+    display: none;
+    background: rgb(255, 255, 255,0.95);
+    padding: 10px;
+    width: 250px;
+    right: 10px;
+    margin-top: 19px;
+    animation: showSubnav 350ms ease-in-out both;
+}
+
+.showUserSubnavJs{
+    display: flex !important;
+    flex-direction: column;
+}
+
+.user h3 ul li{
+    text-align: center;
+}
+
+.user h3 ul li a{
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 100;
+    display: block;
+    width: 100%;
+    padding: 15px;
+}
+
+.user h3 ul li a:hover{
+    background: rgb(34, 111, 173);
+    color: #fff;
+}
+
+.user h3 ul li a:active{
+    background: rgb(34, 111, 173,0.7);
+}
+
+/*? FOOOTER */
+
+footer{
+    width: 100%;
+    background: #fff;
+    color: #000000;
+}
+
+.footer{
+    width: 60%;
+    margin: 0 auto;
+    padding: 15px 15px;
+}
+
+.footer div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer div span{
+    font-size: 25px;
+    font-family: GeforceB;
+}
+
+.footer ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    margin: 15px 0;
+}
+
+.footer ul li:first-child, .footer ul li:last-child{
+    grid-column: 1/6;
+}
+
+.footer ul li{
+    text-align: center;
+    font-size: 25px;
+    padding:5px 10px;
+}
+
+.footer ul li i{
+    text-decoration: none;
+    color: #226fad;
+    font-size: 80px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.footer ul li i:hover{
+    color:  rgb(1, 144, 125);
+}
+
+.footer ul li i:active{
+    color: rgb(1, 144, 125,0.6);
+}
+
+/*? RESPONSIVE */
+
+@media (max-width: 1200px){
+    .ham{
+        display: block;
+    }
+
+    .nav1{
+        height: 122px;
+        position: absolute;
+        top: -322px;
+        flex-direction: column;
+        justify-content: normal;
+    }
+
+    .nav2{
+        top: -326px;
+        position: absolute;
+    }
+
+    .nav2 ul{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    nav ul li{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .subnav{
+        width: 100%;
+        position: relative;
+        background: rgb(227, 218, 89,0.7);
+        margin: 0;
+    }
+
+    .subnav li{
+        width: 100%;
+    }
+
+    .user{
+        width: 100%;
+        z-index: 100;
+    }
+
+    .user h3{
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    .user h3 ul{
+        position: relative;
+        padding: 0;
+        width: 100%;
+        right: auto;
+        margin-top: 15px;
+        background: rgba(234, 85, 85, 0.95);
+    }
+
+    .user h3 ul li a{
+        color: #fff;
+        border-radius: 0;
+    }
+
+    nav ul li a, nav ul li div{
+        padding: 15px;
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 800px){
+    .footer{
+        width: 80%;
+    }
+}
+
+@media (max-width: 600px){
+    .footer{
+        width: 100%;
+    }
+
+    .footer ul{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .footer ul li:first-child, .footer ul li:last-child{
+        text-align: center;
+        grid-column: 1/3;
+    }
+
+    .footer ul li:last-child{
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 399px){
+    .ham{
+        margin: 5px 5px 0 0;
+    }
+}

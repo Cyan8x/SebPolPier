@@ -1,5 +1,5 @@
-<header class="header">
-    <div class="nomEmpresa  nav1">
+<header>
+    <div class="nav1">
         <a class="sebpolpier" href="index.php">
             <img src="../imagenes/SebPolPier.jpg" alt="">
         </a>
@@ -10,24 +10,32 @@
         }
         if (isset($_SESSION['session_usuario'])) {
         ?>
-            <div class="Bienvenido">
-                <div class="Bienvenido_div">
-                    <a href="carrito.php">
-                        <div class="icon">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span>
-                                <?php
-                                if (isset($_SESSION['carrito'])) {
-                                    echo count($_SESSION['carrito']);
-                                } else {
-                                    echo 0;
-                                }
-                                ?>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                <h2>¡¡¡Bienvenido, <span class="user"><?php echo $_SESSION['session_usuario']; ?></span>¡¡¡ <a class="cerrarSesion" href="Login/register_login/logout.php">Cerrar Sesión</a></h2>
+            <div class="user">
+                <h3>
+                    <span><?php echo $_SESSION['session_usuario']; ?></span>
+                    <span class="down"><i class="fas fa-angle-down"></i></span>
+                    <span class="up"><i class="fas fa-angle-up"></i></span>
+                    <ul>
+                        <li>
+                            <a href="carrito.php">
+                                Carrito de compras
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>
+                                    <?php
+                                    if (isset($_SESSION['carrito'])) {
+                                        echo count($_SESSION['carrito']);
+                                    } else {
+                                        echo 0;
+                                    }
+                                    ?>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="cerrarSesion" href="Login/register_login/logout.php">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </h3>
             <?php
         } else { ?>
                 <div class="login">
@@ -39,42 +47,29 @@
             </div>
     </div>
     <!-- Menu responsive -->
-    <nav class="nav">
-        <ul class="nav__ul">
-            <li class="nav__li">
-                <a href="Nosotros.php"><i class="fas fa-users"></i>Nosotros</a>
-            </li>
-            <li class="nav__li product  products">
-                <a href="#"><i class="fab fa-accusoft"></i>Productos</a>
-                <ul class="submenu  subnav">
-                    <li class="submenu_li"><a href="Tarjetas Graficas.php">Tarjetas Gráficas</a></li>
-                    <li class="submenu_li"><a href="Procesadores.php">Procesadores</a></li>
-                    <li class="submenu_li"><a href="Placas Madres.php">Placas Madres</a></li>
-                </ul>
-            </li>
-        </ul>
-        <div class="nav__responsive-button-container  ham">
-            <div class="nav__responsive-button  fas fa-bars"></div>
-        </div>
-
-
-
-
-
-        <!-- <ul class="nav__responsive-ul">
-            <div class="nav__responsive-button-container">
-                <div class="nav__responsive-button  fas fa-bars"></div>
-            </div>
-            <div class="nav__li-container">
-                <li class="nav__responsive-li"><a href="Nosotros.php"><i class="fas fa-users"></i>Nosotros</a></li>
-                <li class="nav__responsive-li product"><a href="#"><i class="fab fa-accusoft"></i>Productos</a>
-                    <ul class="submenu">
-                        <li class="submenu_li"><a href="Tarjetas Graficas.php">Tarjetas Gráficas</a></li>
-                        <li class="submenu_li"><a href="Procesadores.php">Procesadores</a></li>
-                        <li class="submenu_li"><a href="Placas Madres.php">Placas Madres</a></li>
+    <div>
+        <nav class="nav2">
+            <ul>
+                <li>
+                    <a href="Nosotros.php"><i class="fas fa-users"></i>Nosotros</a>
+                </li>
+                <li class="products">
+                    <div>
+                        <i class="fab fa-accusoft"></i>
+                        Productos
+                        <span class="down Da"><i class="fas fa-angle-down"></i></span>
+                        <span class="up Ua"><i class="fas fa-angle-up"></i></span>
+                    </div>
+                    <ul class="subnav">
+                        <li><a href="Tarjetas Graficas.php">Tarjetas Gráficas</a></li>
+                        <li><a href="Procesadores.php">Procesadores</a></li>
+                        <li><a href="Placas Madres.php">Placas Madres</a></li>
                     </ul>
                 </li>
-            </div>
-        </ul> -->
-    </nav>
+            </ul>
+        </nav>
+        <div class="ham">
+            <div class="fas fa-bars"></div>
+        </div>
+    </div>
 </header>

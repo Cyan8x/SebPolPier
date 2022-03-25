@@ -35,43 +35,51 @@
             $contraseña_hash = password_hash($contraseña, PASSWORD_BCRYPT);
             $contraseña2 = $_POST['contraseña2'];
             $contraseña2_hash = password_hash($contraseña2, PASSWORD_BCRYPT);
-            if (strlen($dni) != 8) {
-                echo '<p class = "error">El DNI ingresado no es válido</p>';
-            } else {
-                if (strlen($telefono) != 9 /*or strlen($telefono) != 7*/) {
-                    echo '<p class = "error">El número telefonico ingresado no es válido</p>';
+
+            $query = $connection->prepare("SELECT * FROM usuarios WHERE DNI=:dni");
+            $query->bindParam("dni", $dni, PDO::PARAM_STR);
+            $query->execute();
+            if ($query->rowCount() == 0) {
+                if (strlen($dni) != 8) {
+                    echo '<p class = "error">El DNI ingresado no es válido</p>';
                 } else {
-                    if ($contraseña != $contraseña2) {
-                        echo '<p class = "error">Las contraseñas no son identicas</p>';
+                    if (strlen($telefono) != 9 /*or strlen($telefono) != 7*/) {
+                        echo '<p class = "error">El número telefonico ingresado no es válido</p>';
                     } else {
-                        $query = $connection->prepare("SELECT * FROM usuarios WHERE EMAIL=:email");
-                        $query->bindParam("email", $email, PDO::PARAM_STR);
-                        $query->execute();
-                        if ($query->rowCount() > 0) {
-                            echo '<p class = "error">El correo electrónico ingresado ya se encuentra registrado</p>';
-                        }
-                        if ($query->rowCount() == 0) {
-                            $query = $connection->prepare("INSERT INTO usuarios(USUARIO,EMAIL,NOMBRES,APELLIDOS,CONTRASEÑA,DNI,DIRECCION,CIUDAD,TELEFONO,ADMINIS) VALUES (:usuario,:email,:nombres,:apellidos,:contrasena_hash,:dni,:direccion,:ciudad,:telefono,1)");
-                            $query->bindParam("nombres", $nombres, PDO::PARAM_STR);
-                            $query->bindParam("apellidos", $apellidos, PDO::PARAM_STR);
-                            $query->bindParam("usuario", $usuario, PDO::PARAM_STR);
-                            $query->bindParam("email", $email, PDO::PARAM_STR);
-                            $query->bindParam("contrasena_hash", $contraseña_hash, PDO::PARAM_STR);
-                            $query->bindParam("dni", $dni, PDO::PARAM_INT);
-                            $query->bindParam("direccion", $direccion, PDO::PARAM_STR);
-                            $query->bindParam("ciudad", $ciudad, PDO::PARAM_STR);
-                            $query->bindParam("telefono", $telefono, PDO::PARAM_INT);
-                            $result = $query->execute();
-                            if ($result) {
-                                $message = "Cuenta correctamente creada";
-                            } else {
-                                $message = "Error al ingreso de datos";
-                            }
+                        if ($contraseña != $contraseña2) {
+                            echo '<p class = "error">Las contraseñas no son identicas</p>';
                         } else {
-                            $message = "El nombre de usuario ingresado ya existe. Por favor, intente con otra.";
+                            $query = $connection->prepare("SELECT * FROM usuarios WHERE EMAIL=:email");
+                            $query->bindParam("email", $email, PDO::PARAM_STR);
+                            $query->execute();
+                            if ($query->rowCount() > 0) {
+                                echo '<p class = "error">El correo electrónico ingresado ya se encuentra registrado</p>';
+                            }
+                            if ($query->rowCount() == 0) {
+                                $query = $connection->prepare("INSERT INTO usuarios(USUARIO,EMAIL,NOMBRES,APELLIDOS,CONTRASEÑA,DNI,DIRECCION,CIUDAD,TELEFONO,ADMINIS) VALUES (:usuario,:email,:nombres,:apellidos,:contrasena_hash,:dni,:direccion,:ciudad,:telefono,1)");
+                                $query->bindParam("nombres", $nombres, PDO::PARAM_STR);
+                                $query->bindParam("apellidos", $apellidos, PDO::PARAM_STR);
+                                $query->bindParam("usuario", $usuario, PDO::PARAM_STR);
+                                $query->bindParam("email", $email, PDO::PARAM_STR);
+                                $query->bindParam("contrasena_hash", $contraseña_hash, PDO::PARAM_STR);
+                                $query->bindParam("dni", $dni, PDO::PARAM_INT);
+                                $query->bindParam("direccion", $direccion, PDO::PARAM_STR);
+                                $query->bindParam("ciudad", $ciudad, PDO::PARAM_STR);
+                                $query->bindParam("telefono", $telefono, PDO::PARAM_INT);
+                                $result = $query->execute();
+                                if ($result) {
+                                    $message = "Cuenta correctamente creada";
+                                } else {
+                                    $message = "Error al ingreso de datos";
+                                }
+                            } else {
+                                $message = "El nombre de usuario ingresado ya existe. Por favor, intente con otra.";
+                            }
                         }
                     }
                 }
+            } else {
+                echo '<p class = "error">El DNI ingresado ya se encuentra registrado</p>';
             }
         } else {
             //SI LOS CAMPOS ESTAN VACIOS, SE MUESTRA UN MENSAJE DE ERROR

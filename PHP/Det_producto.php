@@ -19,17 +19,22 @@ if (isset($_GET['cod_producto'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/base.css">
+    <!-- Base -->
+    <link rel="stylesheet" href="../CSS/base10.css">
+    <!-- Personal -->
     <link rel="stylesheet" href="../CSS/Det_producto.css">
+    <!-- Normalize -->
     <link rel="stylesheet" href="../CSS/normalize.css">
+    <!-- Icon -->
     <link rel="shortcut icon" href="../imagenes/S.jpg">
+    <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/4c62087cc0.js" crossorigin="anonymous"></script>
     <title>Producto</title>
 </head>
 
 <body>
     <?php
-    include("Login/includes/header.php")
+    include("Login/includes/header1.php")
     ?>
     <div class="body_div">
         <div>

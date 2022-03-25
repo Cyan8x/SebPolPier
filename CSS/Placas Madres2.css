@@ -1,0 +1,121 @@
+.main{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 150px;
+}
+
+/*? TITULO */
+
+.title{
+    width: 100%;
+}
+
+.title h1{
+    text-align: center;
+    font-size: 130px;
+    margin: 0;
+    font-family: GeforceB;
+    color: rgb(34, 111, 173);
+    text-shadow: -2px 2px 0 #ffffff, -14px 7px 0 #0a0e27;
+}
+
+/*? PRODUCTOS */
+
+.tarjetas{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin: 10px 0;
+}
+
+.tarjetas_div{
+    background: #ffffff;
+    padding: 10px;
+    margin: 5px;
+}
+
+.tarjetas_img{
+    overflow: hidden;
+}
+
+.tarjetas_img a img{
+    transition: all 1s;
+}
+
+.tarjetas_img a img:hover{
+    transform: scale(1.12);
+}
+
+.tarjetas_div div{
+    color: #000000;
+    font-family: GeforceB;
+    text-align: center;
+}
+
+.tarjetas_div div a{
+    text-decoration: none;
+    color: rgb(34, 111, 173);
+    transition: all 0.5s;
+}
+
+.tarjetas_div div p{
+    padding: 5px 0;
+    font-size: 20px;
+}
+
+.tarjetas_div div a:hover{
+    color: rgb(66, 255, 255);
+}
+
+.tarjetas_div div a:active{
+    color: rgb(52, 204, 204);
+}
+
+/*? RESPONSIVE */
+
+@media (max-width:1400px){
+    .title h1{
+        font-size: 100px;
+    }
+
+    .tarjetas{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media (max-width:999px){
+    .tarjetas{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width:799px){
+    .title h1{
+        font-size: 80px;
+    }
+}
+
+@media (max-width:599px){
+    .title h1{
+        font-size: 50px;
+    }
+
+    .tarjetas{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+
+@media (max-width:350px){
+    .title h1{
+        font-size: 30px;
+        text-shadow: -1px 1px 0 #ffffff, -7px 4px 0 #0a0e27;
+    }
+
+    .tarjetas_div div a h2{
+        font-size: 20px;
+    }
+
+    .tarjetas_div div p{
+        font-size: 18px;
+    }
+}
