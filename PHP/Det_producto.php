@@ -22,7 +22,7 @@ if (isset($_GET['cod_producto'])) {
     <!-- Base -->
     <link rel="stylesheet" href="../CSS/base10.css">
     <!-- Personal -->
-    <link rel="stylesheet" href="../CSS/Det_producto.css">
+    <link rel="stylesheet" href="../CSS/Det_producto3.css">
     <!-- Normalize -->
     <link rel="stylesheet" href="../CSS/normalize.css">
     <!-- Icon -->
@@ -36,20 +36,20 @@ if (isset($_GET['cod_producto'])) {
     <?php
     include("Login/includes/header1.php")
     ?>
-    <div class="body_div">
-        <div>
+    <div class="main">
+        <div class="info_product">
             <div class="img_product">
                 <img src="../imagenes/<?php echo $det_prod[5]; ?>" alt="<?php echo $det_prod[6]; ?>">
             </div>
             <div class="det_producto">
                 <div>
-                    <h2 class="det_producto-h2"><?php echo $det_prod[6] . " (" . $det_prod[4] . ")"; ?></h2>
+                    <h2><?php echo $det_prod[6] . " (" . $det_prod[4] . ")"; ?></h2>
                     <div>
-                        <p class="p1"><?php echo "$" . number_format($det_prod[8], 2, '.', ',') . " - S/" . number_format($det_prod[9], 2, '.', ','); ?></p>
+                        <p class="p1"><?php echo "Precio: $" . number_format($det_prod[8], 2, '.', ',') . " - S/" . number_format($det_prod[9], 2, '.', ','); ?></p>
                         <p class="p2">En stock: <?php echo $det_prod[7]; ?> articulos</p>
                         <div class="submit">
-                            <div class="submit_div">
-                                <a class="button" href="carrito.php?cod_producto=<?php echo $det_prod[0]; ?>">Añadir al carrito de compras</a>
+                            <div>
+                                <a href="carrito.php?cod_producto=<?php echo $det_prod[0]; ?>">AÑADIR AL CARRITO DE COMPRAS</a>
                             </div>
                         </div>
                     </div>

@@ -98,9 +98,9 @@ if (isset($_SESSION['session_usuario'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Base -->
-    <link rel="stylesheet" href="../CSS/base9.css">
+    <link rel="stylesheet" href="../CSS/base10.css">
     <!-- Personal -->
-    <link rel="stylesheet" href="../CSS/carritoxx.css">
+    <link rel="stylesheet" href="../CSS/carrito2.css">
     <!-- Normalize -->
     <link rel="stylesheet" href="../CSS/normalize.css">
     <!-- Icon -->
@@ -114,7 +114,7 @@ if (isset($_SESSION['session_usuario'])) {
     <?php
     include("Login/includes/header1.php")
     ?>
-    <div class="carrito_Total">
+    <div class="main">
         <div class="row">
             <div class="carrito_Total-div">
                 <div class="carrito_Total-div-div">

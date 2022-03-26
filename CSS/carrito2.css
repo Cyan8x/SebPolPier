@@ -1,100 +1,17 @@
-.carrito_Total {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 150px;
+.main{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 150px;
 }
 
-@media (min-width: 576px){
-    .carrito_Total {
-        width: 100%;
-        max-width: 100%;
-    }
-}
 
-@media (min-width: 768px){
-    .carrito_Total {
-        width: 100%;
-        max-width: 100%;
-    }
-}
-
-@media (min-width: 992px){
-    .carrito_Total {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 15px;
-    }
-}
-
-@media (min-width: 1200px){
-    .carrito_Total {
-        width: 1170px;
-        max-width: 100%;
-    }
-}
-
-@media only screen and (min-width: 1200px){
-    .carrito_Total {
-        width: 1200px;
-    }
-}
-
-@media only screen and (min-width: 1400px){
-    .carrito_Total {
-        width: 1400px;
-    }
-}
-
-@media only screen and (min-width: 1500px){
-    .carrito_Total {
-        width: 1500px;
-    }
-}
-
-@media only screen and (min-width: 1600px){
-    .carrito_Total {
-        width: 1600px;
-    }
-}
-
-@media only screen and (min-width: 1770px){
-    .carrito_Total {
-        width: 1770px;
-    }
-}
 
 .row{
     margin-right: -15px;
     margin-left: -15px;
 }
 
-@media (min-width: 576px){
-    .row{
-        margin-right: -15px;
-        margin-left: -15px;
-    }
-}
 
-@media (min-width: 768px){
-    .row{
-        margin-right: -15px;
-        margin-left: -15px;
-    }
-}
-
-@media (min-width: 992px){
-    .row{
-        margin-right: -15px;
-        margin-left: -15px;
-    }
-}
-
-@media (min-width: 1200px){
-    .row{
-        margin-right: -15px;
-        margin-left: -15px;
-    }
-}
 
 .carrito_Total-div{
     width: 100%;
@@ -116,33 +33,7 @@
     padding-left: 15px;
 }
 
-@media (min-width: 576px){
-    .det_producto{
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-}
 
-@media (min-width: 768px){
-    .det_producto{
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-}
-
-@media (min-width: 992px){
-    .det_producto{
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-}
-
-@media (min-width: 1200px){
-    .det_producto{
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-}
 
 .carrito_compra-comtenido {
     margin-bottom: .75rem;
@@ -151,12 +42,7 @@
     height: 100%;
 }
 
-@media (min-width: 992px){
-    .carrito_compra-comtenido {
-        float: left;
-        width: 66%;
-    }
-}
+
 
 .carrito_compra-comtenido a{
     text-decoration: none;
@@ -206,53 +92,7 @@
     min-height: 180px;
 }
 
-@media (min-width: 1051px) and (max-width: 1200px){
-    .lista_elemento{
-        min-height: 190px;
-    }
-}
 
-@media (min-width: 992px) and (max-width: 1050px){
-    .lista_elemento{
-        min-height: 210px;
-    }
-}
-
-@media (min-width: 661px) and (max-width: 741px){
-    .lista_elemento{
-        min-height: 190px;
-    }
-}
-
-@media (min-width: 612px) and (max-width: 660px){
-    .lista_elemento{
-        min-height: 210px;
-    }
-}
-
-@media (min-width: 501px) and (max-width: 611px){
-    .lista_elemento{
-        min-height: 220px;
-    }
-}
-
-@media (min-width: 466px) and (max-width: 500px){
-    .lista_elemento{
-        min-height: 265px;
-    }
-}
-
-@media (min-width: 371px) and (max-width: 465px){
-    .lista_elemento{
-        min-height: 620px;
-    }
-}
-
-@media (min-width: 100px) and (max-width: 370px){
-    .lista_elemento{
-        min-height: 550px;
-    }
-}
 
 .imagen_producto {
     float: left;
@@ -395,12 +235,7 @@
     text-align: center;
 }
 
-@media (min-width: 768px){
-    .precioTotal {
-        float: left;
-        width: 70%;
-    }
-}
+
 
 .precioTotal-div{
     display: inline-block;
@@ -449,44 +284,13 @@
     color: rgb(0, 255, 221);
 }
 
-@media (min-width: 466px) and (max-width: 610px){
-    .nom_precio{
-        width: 60%;
-    }
 
-    .cantTotal_precioTotal{
-        width: 60%;
-    }
-}
-
-@media (min-width: 100px) and (max-width: 465px){
-    .nom_precio{
-        width: 100%;
-    }
-
-    .cantTotal_precioTotal{
-        width: 100%;
-    }
-}
-
-@media (max-width: 500px){
-    .cantTotal_precioTotal{
-        width: 100%;
-        margin-top: 15px;
-    }
-}
 
 .arts-monto-venta_final{
     float: left;
     width: 100%;
 }
 
-@media (min-width: 992px){
-    .arts-monto-venta_final{
-        float: left;
-        width: 34%;
-    }
-}
 
 .arts-monto-venta_final-div{
     position: relative;

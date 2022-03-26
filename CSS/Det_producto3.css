@@ -1,0 +1,127 @@
+.main{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 150px;
+}
+
+/*? PRODUCTO */
+
+.info_product{
+    width: 100%;
+    display: flex;
+    margin: 20px 0;
+}
+
+.img_product , .det_producto{
+    margin: 0 10px;
+}
+
+.img_product img{
+    min-width: 400px;
+}
+
+.img_product{
+    display: flex;
+    align-items: center;
+}
+.det_producto{
+    display: flex;
+    align-items: center;
+}
+
+.det_producto div h2{
+    font-size: 35px;
+    font-family: GeforceB;
+    text-align: center;
+    color: rgb(34, 111, 173);
+    text-shadow: -1.5px 1.5px 0 #ffffff, -7px 7px 0 #0a0e27;
+    margin-bottom: 40px;
+}
+
+.p1, .p2{
+    margin: 10px 0;
+    font-size: 30px;
+    font-family: GeforceB;
+    text-align: center;
+}
+
+.p1{
+    color: rgb(13, 128, 13);
+}
+
+.submit{
+    margin-top: 40px;
+}
+
+.submit div{
+    width: 100%;
+    border-radius: 40px 5px;
+    overflow: hidden;
+    transition: all .5s;
+    box-shadow: 2px 2px 2px 2px rgb(255 255 255 / 50%), -2px -2px 2px 2px rgb(255 255 255 / 50%);
+}
+
+.submit div a{
+    background: linear-gradient(to right, #000000, rgb(34, 111, 173));
+    color: rgb(255, 255, 255);
+    font-family: GeforceB;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+.submit div a:hover{
+    background: linear-gradient(to right, rgb(34, 111, 173), #000000);
+}
+
+.submit div a:active{
+    opacity: 0.7;
+}
+
+@media (max-width:999px){
+    .main{
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width:799px){
+    .info_product{
+        flex-direction: column;
+    }
+
+    .img_product{
+        padding-bottom: 15px;
+    }
+}
+
+@media (max-width:599px){
+    .img_product img{
+        min-width: 200px;
+    }
+}
+
+@media (max-width:399px){
+    .det_producto div h2{
+        font-size: 22px;
+        text-shadow: -1px 1px 0 #ffffff, -7px 7px 0 #0a0e27;
+    }
+
+    .p1, .p2{
+        font-size: 20px;
+    }
+
+    .submit div{
+        border-radius: 10px;
+    }
+
+    .submit div a{
+        font-size: 18px;
+    }
+}
+
