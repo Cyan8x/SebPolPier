@@ -1,10 +1,56 @@
 .main{
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
-    padding-top: 150px;
+    padding-top: 180px;
 }
 
+.car-flex{
+    width: 100%;
+    display: flex;
+}
 
+.car{
+    flex: 3;
+    background: #fff;
+    border-radius: 5px;
+    color: black;
+    margin-right: 15px;
+}
+
+.car h2{
+    font-size: 30px;
+    font-family: GeforceB;
+    color: rgb(34, 111, 173);
+    padding: 25px 15px;
+}
+
+.car-item{
+    padding: 15px 5px;
+}
+
+.car-item ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.car-item ul li{
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+}
+
+.card-item ul li div{
+    padding: 10px 5px;
+}
+
+.total{
+    border-radius: 5px;
+    flex: 1;
+    background: #fff;
+    color: black;
+    margin-left: 15px;
+}
+/*
 
 .row{
     margin-right: -15px;
@@ -427,3 +473,4 @@
 .SegCom:active{
     color: rgb(0, 189, 164);
 }
+*/

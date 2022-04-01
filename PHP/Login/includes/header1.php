@@ -20,7 +20,7 @@
                             <a href="carrito.php">
                                 Carrito de compras
                                 <i class="fas fa-shopping-cart"></i>
-                                <span>
+                                <span class="articulosTotal">
                                     <?php
                                     if (isset($_SESSION['carrito'])) {
                                         echo count($_SESSION['carrito']);

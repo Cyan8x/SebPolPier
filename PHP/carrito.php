@@ -90,6 +90,7 @@ if (isset($_SESSION['session_usuario'])) {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,7 +101,7 @@ if (isset($_SESSION['session_usuario'])) {
     <!-- Base -->
     <link rel="stylesheet" href="../CSS/base10.css">
     <!-- Personal -->
-    <link rel="stylesheet" href="../CSS/carrito2.css">
+    <link rel="stylesheet" href="../CSS/carrito3.css">
     <!-- Normalize -->
     <link rel="stylesheet" href="../CSS/normalize.css">
     <!-- Icon -->
@@ -110,12 +111,77 @@ if (isset($_SESSION['session_usuario'])) {
     <title>Carrito</title>
 </head>
 <!-- ESTRUCTURA DEL CARRITO DE COMPRAS -->
+
 <body>
     <?php
     include("Login/includes/header1.php")
     ?>
     <div class="main">
-        <div class="row">
+        <div class="car-flex">
+            <div class="car">
+                <h2>Carrito de Compras</h2>
+                <hr>
+                <div class="car-item">
+                    <ul>
+                        <?php
+                        $totalD = 0;
+                        $totalS = 0;
+                        if (isset($_SESSION['carrito'])) {
+                            $arregloCarrito = $_SESSION['carrito'];
+                            for ($i = 0; $i < count($arregloCarrito); $i++) {
+                                $totalD = $totalD + ($arregloCarrito[$i]['Precio_dolares'] * $arregloCarrito[$i]['Cantidad']);
+                                $totalS = $totalS + ($arregloCarrito[$i]['Precio_soles'] * $arregloCarrito[$i]['Cantidad']);
+                        ?>
+                                <li>
+                                    <div>
+                                        <img class="img_prod-div-img" src="../imagenes/<?php echo $arregloCarrito[$i]['Imagen']; ?>" alt="<?php echo $arregloCarrito[$i]['Nombre']; ?>">
+                                    </div>
+                                    <div>
+                                        <a href="Det_producto.php?cod_producto=<?php echo $arregloCarrito[$i]['Cod_producto']; ?>"><?php echo $arregloCarrito[$i]['Nombre'] . " (" . $arregloCarrito[$i]['Cod_orig'] . ")"; ?></a>
+                                        <p><?php echo "$" . number_format($arregloCarrito[$i]['Precio_dolares'], 2, '.', ',') . " - S/" . number_format($arregloCarrito[$i]['Precio_soles'], 2, '.', ','); ?></p>
+                                    </div>
+                                    <div>
+                                        <button class="incrementar">+</button>
+                                        <input class="cant" type="text" value="<?php echo $arregloCarrito[$i]['Cantidad']; ?>" data-stock="<?php echo $arregloCarrito[$i]['Stock']; ?>" data-id="<?php echo $arregloCarrito[$i]['Cod_producto']; ?>" data-preciod="<?php echo $arregloCarrito[$i]['Precio_dolares']; ?>" data-precios="<?php echo $arregloCarrito[$i]['Precio_soles']; ?>" readonly>
+                                        <button class="reducir">-</button>
+                                    </div>
+                                    <div>
+                                        <h3 class="cod_<?php echo $arregloCarrito[$i]['Cod_producto']; ?>">
+                                            <?php echo "$" . number_format($arregloCarrito[$i]['Precio_dolares'] * $arregloCarrito[$i]['Cantidad'], 2, '.', ',') . " - S/" . number_format($arregloCarrito[$i]['Precio_soles'] * $arregloCarrito[$i]['Cantidad'], 2, '.', ','); ?>
+                                        </h3>
+                                    </div>
+                                    <div>
+                                        <a href="carrito.php" class="btnEliminar elim" data-id="<?php echo $arregloCarrito[$i]['Cod_producto']; ?>"><i class="fas fa-trash"></i></a>
+                                    </div>
+                                </li>
+                        <?php
+                            }
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="total">
+                <div>
+                    <h2 ><span class="articulosTotal"><?php
+                                                if (isset($_SESSION['carrito'])) {
+                                                    echo count($_SESSION['carrito']);
+                                                } else {
+                                                    echo 0;
+                                                }
+                                                ?></span> articulos</h2>
+                    <h2 class="precioArticulos Fin"><?php echo "$" . number_format($totalD, 2, '.', ',') . " - S/" . number_format($totalS, 2, '.', ',') ?></h2>
+                </div>
+                <div>
+                    <h2 class="labe">Total</h2>
+                    <h2 class="valor Fin"><?php echo "$" . number_format($totalD, 2, '.', ',') . " - S/" . number_format($totalS, 2, '.', ',') ?></h2>
+                </div>
+                <div class="venta-div">
+                    <a href="venta.php">Proceder a pagar</a>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row">
             <div class="carrito_Total-div">
                 <div class="carrito_Total-div-div">
                     <div class="row carrito_compra ">
@@ -228,7 +294,7 @@ if (isset($_SESSION['session_usuario'])) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="seguir_compr">
         <div>
@@ -238,7 +304,7 @@ if (isset($_SESSION['session_usuario'])) {
     <?php
     include("Login/includes/footer.php")
     ?>
-    <script src="../js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/jquery-ui.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -281,7 +347,8 @@ if (isset($_SESSION['session_usuario'])) {
                         var precioS = $(this).parent('div').parent('div').find('input').data('precios');
                         var id = $(this).parent('div').parent('div').find('input').data('id');
                         var cantidad = $(this).parent('div').parent('div').find('input').val();
-                        //var data = <?php //echo json_encode($arregloCarrito); ?>;
+                        //var data = <?php //echo json_encode($arregloCarrito); 
+                                        ?>;
                         incrementar(cantidad, precioD, precioS, id);
                     }
                 );
@@ -300,6 +367,22 @@ if (isset($_SESSION['session_usuario'])) {
                 }
             }
         );
+    </script> -->
+
+    <script>
+        <?php
+        if (isset($_SESSION['carrito'])) {
+        ?>
+            var x = '<?php echo json_encode($_SESSION['carrito']); ?>';
+        <?php
+        } else {
+        ?>
+            var x;
+        <?php
+        }
+        ?>
     </script>
+    <script src="./../js/carrito6.js"></script>
 </body>
+
 </html>

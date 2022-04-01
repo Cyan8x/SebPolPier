@@ -56,6 +56,16 @@ $ham.addEventListener('click', ()=>{
     console.log("hola2");
 })
 
+function totalArticulos() {
+    $.ajax({
+        method: 'POST',
+        url: './../PHP/Login/includes/articulosCar.php',
+    }).done(function(res){
+        $(".articulosTotal").text(res);
+        console.log(res);
+    });
+}
+
 
 
 
