@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../includes/connection.php");
+include("../../includes_login/connection.php");
 if (!isset($_SESSION['session_admin'])) {
     header("Location: ./../../../../index.php");
 }
@@ -98,21 +98,21 @@ if (!isset($_SESSION['session_admin'])) {
                     ?>
                     <div id="accordion">
                         <?php
-                        $sql1 = 'SELECT ventas.*, detalle2_venta.monto_finalD, detalle2_venta.monto_finalS FROM ventas INNER JOIN detalle2_venta ON ventas.cod_venta = detalle2_venta.cod_venta';
+                        $sql1 = 'SELECT ventas.*, usuarios.* FROM ventas INNER JOIN usuarios ON usuarios.id_user = ventas.id_user';
                         foreach ($connection->query($sql1) as $result1) {
                         ?>
                             <div class="card">
-                                <div class="card-header" id="heading<?php echo $result1['cod_venta'] ?>">
+                                <div class="card-header" id="heading<?php echo $result1['id_venta'] ?>">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php echo $result1['cod_venta'] ?>" aria-expanded="true" aria-controls="collapse<?php echo $result1['cod_venta'] ?>">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php echo $result1['id_venta'] ?>" aria-expanded="true" aria-controls="collapse<?php echo $result1['id_venta'] ?>">
                                             <?php
-                                            echo $result1['cod_venta'] . " - " . $result1['usuario'] . " - " . $result1['fecha_compra'] . " - " . $result1['estado']
+                                            echo $result1['id_venta'] . " - " . $result1['usuario'] . " - " . $result1['fecha_compra'] . " - " . $result1['estado']
                                             ?>
                                         </button>
                                     </h5>
                                 </div>
 
-                                <div id="collapse<?php echo $result1['cod_venta'] ?>" class="collapse show" aria-labelledby="heading<?php echo $result1['cod_venta'] ?>" data-parent="#accordion">
+                                <div id="collapse<?php echo $result1['id_venta'] ?>" class="collapse show" aria-labelledby="heading<?php echo $result1['id_venta'] ?>" data-parent="#accordion">
                                     <div class="card-body">
                                         <p style="font-size: 25px;"><u><b>Datos del Cliente</b>  </u></p>
                                         <p>Nombres del Cliente: <?php echo $result1['nombres'] ?></p>
@@ -129,16 +129,14 @@ if (!isset($_SESSION['session_admin'])) {
                                                     <th>Imagen</th>
                                                     <th>Nombre</th>
                                                     <th>Cantidad</th>
-                                                    <th>Precio_Dolares</th>
-                                                    <th>Precio_Soles</th>
-                                                    <th>Subtotal_Dolares</th>
-                                                    <th>Subtotal_Soles</th>
+                                                    <th>Precio</th>
+                                                    <th>Subtotal</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $sql2 = 'SELECT detalle1_venta.*, productos.imagen, productos.nombre FROM detalle1_venta INNER JOIN productos ON productos.cod_producto = detalle1_venta.cod_producto WHERE cod_venta = '.$result1['cod_venta'];
+                                                $sql2 = 'SELECT det_venta.*, productos.* FROM det_venta INNER JOIN productos ON productos.cod_producto = det_venta.cod_producto WHERE id_venta = '.$result1['id_venta'];
                                                 foreach ($connection->query($sql2) as $result2) {
                                                 ?>
                                                     <tr>
@@ -146,17 +144,15 @@ if (!isset($_SESSION['session_admin'])) {
                                                         <td><img src="../../../../imagenes/<?php echo $result2['imagen']; ?>" alt="<?php echo $result2['nombre']; ?>" width="100px" height="100px"></td>
                                                         <td><?php echo $result2['nombre']; ?></td>
                                                         <td><?php echo $result2['cantidad']; ?></td>
-                                                        <td><?php echo "$" . number_format($result2['precio_dolares'], 2, '.', ','); ?></td>
-                                                        <td><?php echo "S/" . number_format($result2['precio_soles'], 2, '.', ','); ?></td>
-                                                        <td><?php echo "$" . number_format($result2['subtotal_dolares'], 2, '.', ','); ?></td>
-                                                        <td><?php echo "S/" . number_format($result2['subtotal_soles'], 2, '.', ','); ?></td>
+                                                        <td><?php echo "$" . number_format($result2['precio'], 2, '.', ','); ?></td>
+                                                        <td><?php echo "$" . number_format($result2['subtotal'], 2, '.', ','); ?></td>
                                                     </tr>
                                                 <?php
                                                 }
                                                 ?>
                                             </tbody>
                                         </table>
-                                        <p>Monto total a pagar por el Cliente: <?php echo "$" . number_format($result1['monto_finalD'], 2, '.', ','). " - S/" . number_format($result1['monto_finalS'], 2, '.', ','); ?></p>
+                                        <p>Monto total a pagar por el Cliente: <?php echo "$" . number_format($result1['montoFinal'], 2, '.', ',')?></p>
                                     </div>
                                 </div>
                             </div>
@@ -188,9 +184,9 @@ if (!isset($_SESSION['session_admin'])) {
                                 <label for="marca">Marca</label>
                                 <select name="marca" id="marca" class="form-control" required>
                                     <?php
-                                    $sql = 'SELECT * FROM marca';
+                                    $sql = 'SELECT * FROM marcas';
                                     foreach ($connection->query($sql) as $result) {
-                                        echo '<option value="' . $result['cod_marca'] . '">' . $result['nombre'] . '</option>';
+                                        echo '<option value="' . $result['cod_marca'] . '">' . $result['marca'] . '</option>';
                                     }
                                     ?>
                                 </select>
@@ -199,9 +195,9 @@ if (!isset($_SESSION['session_admin'])) {
                                 <label for="categoria">Categoria</label>
                                 <select name="categoria" id="categoria" class="form-control" required>
                                     <?php
-                                    $sql = 'SELECT * FROM categoria';
+                                    $sql = 'SELECT * FROM categorias';
                                     foreach ($connection->query($sql) as $result) {
-                                        echo '<option value="' . $result['cod_categoria'] . '">' . $result['nombre'] . '</option>';
+                                        echo '<option value="' . $result['cod_categoria'] . '">' . $result['categoria'] . '</option>';
                                     }
                                     ?>
                                 </select>
@@ -210,9 +206,9 @@ if (!isset($_SESSION['session_admin'])) {
                                 <label for="proveedor">Proveedor</label>
                                 <select name="proveedor" id="proveedor" class="form-control" required>
                                     <?php
-                                    $sql = 'SELECT * FROM proveedor';
+                                    $sql = 'SELECT * FROM proveedores';
                                     foreach ($connection->query($sql) as $result) {
-                                        echo '<option value="' . $result['cod_prov'] . '">' . $result['nombre'] . '</option>';
+                                        echo '<option value="' . $result['cod_prov'] . '">' . $result['proveedor'] . '</option>';
                                     }
                                     ?>
                                 </select>
@@ -234,12 +230,8 @@ if (!isset($_SESSION['session_admin'])) {
                                 <input type="number" name="stock" placeholder="Stock" id="stock" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="precio_dolares">Precio_Dolares</label>
-                                <input type="number" step="any" name="precio_dolares" placeholder="Precio_Dolares" id="precio_dolares" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="precio_soles">Precio_Soles</label>
-                                <input type="number" step="any"" name=" precio_soles" placeholder="Precio_Soles" id="precio_soles" class="form-control" required>
+                                <label for="precio">Precio</label>
+                                <input type="number" step="any" name="precio" placeholder="Precio" id="precio" class="form-control" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -287,9 +279,9 @@ if (!isset($_SESSION['session_admin'])) {
                                 <label for="marcaEdit">Marca</label>
                                 <select name="marca" id="marcaEdit" class="form-control" required>
                                     <?php
-                                    $sql = 'SELECT * FROM marca';
+                                    $sql = 'SELECT * FROM marcas';
                                     foreach ($connection->query($sql) as $result) {
-                                        echo '<option value="' . $result['cod_marca'] . '">' . $result['nombre'] . '</option>';
+                                        echo '<option value="' . $result['cod_marca'] . '">' . $result['marca'] . '</option>';
                                     }
                                     ?>
                                 </select>
@@ -298,9 +290,9 @@ if (!isset($_SESSION['session_admin'])) {
                                 <label for="categoriaEdit">Categoria</label>
                                 <select name="categoria" id="categoriaEdit" class="form-control" required>
                                     <?php
-                                    $sql = 'SELECT * FROM categoria';
+                                    $sql = 'SELECT * FROM categorias';
                                     foreach ($connection->query($sql) as $result) {
-                                        echo '<option value="' . $result['cod_categoria'] . '">' . $result['nombre'] . '</option>';
+                                        echo '<option value="' . $result['cod_categoria'] . '">' . $result['categoria'] . '</option>';
                                     }
                                     ?>
                                 </select>
@@ -309,9 +301,9 @@ if (!isset($_SESSION['session_admin'])) {
                                 <label for="proveedorEdit">Proveedor</label>
                                 <select name="proveedor" id="proveedorEdit" class="form-control" required>
                                     <?php
-                                    $sql = 'SELECT * FROM proveedor';
+                                    $sql = 'SELECT * FROM proveedores';
                                     foreach ($connection->query($sql) as $result) {
-                                        echo '<option value="' . $result['cod_prov'] . '">' . $result['nombre'] . '</option>';
+                                        echo '<option value="' . $result['cod_prov'] . '">' . $result['proveedor'] . '</option>';
                                     }
                                     ?>
                                 </select>
@@ -330,12 +322,8 @@ if (!isset($_SESSION['session_admin'])) {
                                 <input type="number" name="stock" placeholder="Stock" id="stockEdit" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="precio_dolaresEdit">Precio_Dolares</label>
-                                <input type="number" step="any" name="precio_dolares" placeholder="Precio_Dolares" id="precio_dolaresEdit" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="precio_solesEdit">Precio_Soles</label>
-                                <input type="number" step="any" name="precio_soles" placeholder="Precio_Soles" id="precio_solesEdit" class="form-control" required>
+                                <label for="precioEdit">Precio</label>
+                                <input type="number" step="any" name="precio" placeholder="Precio" id="precioEdit" class="form-control" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -415,8 +403,8 @@ if (!isset($_SESSION['session_admin'])) {
                 $("#cod_orig_prodEdit").val($(this).data('codorigprod'));
                 $("#nombreEdit").val($(this).data('nombre'));
                 $("#stockEdit").val($(this).data('stock'));
-                $("#precio_dolaresEdit").val($(this).data('preciodolares'));
-                $("#precio_solesEdit").val($(this).data('preciosoles'));
+                $("#precioEdit").val($(this).data('precio'));
+                // $("#precio_solesEdit").val($(this).data('preciosoles'));
             });
         });
     </script>

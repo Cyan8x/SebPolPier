@@ -10,8 +10,7 @@
                 'Nombre' => $arreglo[$i]['Nombre'],
                 'Imagen' => $arreglo[$i]['Imagen'],
                 'Stock' => $arreglo[$i]['Stock'],
-                'Precio_dolares' => $arreglo[$i]['Precio_dolares'],
-                'Precio_soles' => $arreglo[$i]['Precio_soles'],
+                'Precio' => $arreglo[$i]['Precio'],
                 'Cantidad' => $arreglo[$i]['Cantidad']
             );
         }

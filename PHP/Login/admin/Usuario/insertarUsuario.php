@@ -1,5 +1,5 @@
 <?php
-require_once("../../includes/connection.php");
+require_once("../../includes_login/connection.php");
 session_start();
 if (isset($_POST["guardar"])) {
     if (!empty($_POST['nombres']) && !empty($_POST['apellidos'] && !empty($_POST['usuario'])) && !empty($_POST['email']) && !empty($_POST['dni']) && !empty($_POST['direccion']) && !empty($_POST['ciudad']) && !empty($_POST['telefono']) && !empty($_POST['contraseña'])  && !empty($_POST['contraseña2'])) {

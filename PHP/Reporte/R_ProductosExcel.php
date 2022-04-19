@@ -1,6 +1,6 @@
 <?php
 //CALL THE AUTOLOAD
-require ("./vendor/autoload.php");
+require("./vendor/autoload.php");
 //LOAD PHPSPREADSHEET CLASS USING NAMESPACE
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 //CALL XLSX WRITER CLASS TO MAKE AN XLSX FILE
@@ -12,8 +12,8 @@ $date =  date('j-m-y');
 
 $sheet = $spreadsheet->getActiveSheet();
 
-$sheet->mergeCells('D2:F2');
-$sheet->setCellValue('D2', 'REPORTE DE PRODUCTOS('.$date.')');
+$sheet->mergeCells('D2:G2');
+$sheet->setCellValue('D2', 'REPORTE DE PRODUCTOS(' . $date . ')');
 $styleArray0 = [
     'alignment' => [
         'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
@@ -25,12 +25,13 @@ $sheet->getStyle('D2')->applyFromArray($styleArray0);
 $sheet->setCellValue('B4', ' CODIGO DE PRODUCTO ');
 $sheet->setCellValue('C4', 'MARCA');
 $sheet->setCellValue('D4', 'CATEGORIA');
-$sheet->setCellValue('E4', 'NOMBRE');
-$sheet->setCellValue('F4', ' PROVEEDOR ');
-$sheet->setCellValue('G4', ' STOCK ');
-$sheet->setCellValue('H4', ' PRECIO EN DOLARES');
-$sheet->setCellValue('I4', ' PRECIO EN SOLES');
-$sheet->getStyle('B4:I4')->getFont()->setBold(true)->setSize(11);
+$sheet->setCellValue('E4', 'PROVEEDOR');
+$sheet->setCellValue('F4', 'COD. ORIGINAL');
+$sheet->setCellValue('G4', '   IMAGEN   ');
+$sheet->setCellValue('H4', 'NOMBRE');
+$sheet->setCellValue('I4', ' STOCK ');
+$sheet->setCellValue('J4', ' PRECIO');
+$sheet->getStyle('B4:J4')->getFont()->setBold(true)->setSize(11);
 $sheet->getColumnDimension('B')->setAutoSize(true);
 $sheet->getColumnDimension('C')->setAutoSize(true);
 $sheet->getColumnDimension('D')->setAutoSize(true);
@@ -39,42 +40,53 @@ $sheet->getColumnDimension('F')->setAutoSize(true);
 $sheet->getColumnDimension('G')->setAutoSize(true);
 $sheet->getColumnDimension('H')->setAutoSize(true);
 $sheet->getColumnDimension('I')->setAutoSize(true);
+$sheet->getColumnDimension('J')->setAutoSize(true);
 
-require("./../Login/includes/connection.php");
 
-$sql = 'SELECT productos.*, marca.nombre AS marc, categoria.nombre AS categ, proveedor.nombre AS prov FROM productos INNER JOIN marca ON productos.cod_marca = marca.cod_marca INNER JOIN categoria ON productos.cod_categoria = categoria.cod_categoria INNER JOIN proveedor ON productos.cod_prov = proveedor.cod_prov';
+require("./../Login/includes_login/connection.php");
+
+$sql = 'SELECT productos.*, marcas.marca AS marc, categorias.categoria AS categ, proveedores.proveedor AS prov FROM productos INNER JOIN marcas ON productos.cod_marca = marcas.cod_marca INNER JOIN categorias ON productos.cod_categoria = categorias.cod_categoria INNER JOIN proveedores ON productos.cod_prov = proveedores.cod_prov';
 $var = 4;
 foreach ($connection->query($sql) as $result) {
     $var++;
-    $sheet->setCellValue('B'.$var, $result['cod_producto']);
-    $sheet->setCellValue('C'.$var, $result['marc']);
-    $sheet->setCellValue('D'.$var, $result['categ']);
-    $sheet->setCellValue('E'.$var, $result['nombre']);
-    $sheet->setCellValue('F'.$var, $result['prov']);
-    $sheet->setCellValue('G'.$var, $result['stock']);
-    $sheet->setCellValue('H'.$var, $result['precio_dolares']);
-    $sheet->setCellValue('I'.$var, $result['precio_soles']);
+    $sheet->setCellValue('B' . $var, $result['cod_producto']);
+    $sheet->setCellValue('C' . $var, $result['marc']);
+    $sheet->setCellValue('D' . $var, $result['categ']);
+    $sheet->setCellValue('E' . $var, $result['prov']);
+    $sheet->setCellValue('F' . $var, $result['cod_orig_prod']);
+    $sheeti = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
+    $sheeti->setPath('../../imagenes/' . $result['imagen']);
+    $sheeti->setHeight(100);
+    $sheeti->setCoordinates('G' . $var);
+    $sheet->getRowDimension($var)->setRowHeight(80);
+    $sheeti->setOffsetX(0);
+    $sheeti->setOffsetY(0);
+    $sheeti->setWorksheet($sheet);
+    $sheet->getStyle('B' . $var . ':K' . $var)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+    $sheet->setCellValue('H' . $var,$result['nombre']);
+    $sheet->setCellValue('I' . $var, $result['stock']);
+    $sheet->setCellValue('J' . $var, '$ ' . $result['precio']);
 }
 
-$sheet->getStyle('B5:I'.$var)->getFont()->setSize(10);
+$sheet->getStyle('B5:J' . $var)->getFont()->setSize(10);
 $styleArray1 = [
-        'alignment' => [
-            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+    'alignment' => [
+        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+    ],
+    'borders' => [
+        'allBorders' => [
+            'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
         ],
-        'borders' => [
-            'allBorders' => [
-                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
-            ],
+    ],
+    'fill' => [
+        'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+        'startColor' => [
+            'argb' => 'ffffff',
         ],
-        'fill' => [
-            'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
-            'startColor' => [
-                'argb' => 'ffffff',
-            ],
-        ],
+    ],
 ];
-$sheet->getStyle('B4:I'.$var)->applyFromArray($styleArray1);
-$sheet->getStyle('B4:I'.$var)->getFont()->setName('Arial');
+$sheet->getStyle('B4:J' . $var)->applyFromArray($styleArray1);
+$sheet->getStyle('B4:J' . $var)->getFont()->setName('Arial');
 $styleArray2 = [
     'fill' => [
         'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
@@ -83,13 +95,13 @@ $styleArray2 = [
         ],
     ],
 ];
-$sheet->getStyle('B4:I4')->applyFromArray($styleArray2);
-$sheet->setTitle('Reporte de Productos('.$date.')');
+$sheet->getStyle('B4:J4')->applyFromArray($styleArray2);
+$sheet->setTitle('Reporte de Productos(' . $date . ')');
 
 //SET THE HEADER FIRST SO THE RESUTL WILL BE TREATED AS AN XLSX FILE
 header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 //MAKE IT AN ATTACHMENT SO WE CAN DEFINE FILENAME
-header('Content-Disposition: attachment; filename="Reporte de Productos('.$date.').xlsx"');
+header('Content-Disposition: attachment; filename="Reporte de Productos(' . $date . ').xlsx"');
 //CREATE IOFactory OBJECT
 $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
 //SAVE INTO PHP OUTPUT
@@ -230,5 +242,3 @@ $writer->save('php://output');
 //  Además, además de proporcionar una rica interfaz de procesamiento de archivos de Excel, PhpSpreadshee también proporciona una interfaz de procesamiento de archivos CSV, PDF, HTML y XML.
 
 //  Para obtener más configuraciones de uso, consulte el documento oficial del sitio web: https://phpspreadsheet.readthedocs.io/en/stable/.
-
-?>

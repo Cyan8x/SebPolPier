@@ -1,0 +1,161 @@
+@font-face{
+    font-family: GeforceB;
+    src: url(../FontFamily/GeForce/Geforce\ Bold.ttf);
+}
+
+@font-face{
+    font-family: GeforceL;
+    src: url(../FontFamily/GeForce/Geforce\ Light.ttf);
+}
+
+body{
+    color: white;
+    background: linear-gradient(to right, #000000, rgb(34, 111, 173));
+
+    font-family: GeforceL,Helvetica,Arial,Sans-Serif;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    width: 400px;
+    background: #fff;
+    padding: 55px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+form{
+    width: 100%;
+}
+
+h1{
+    font-size: 38px;
+    color: rgb(34, 111, 173);
+    text-align: center;
+    font-family: GeforceB;
+}
+
+input, button{
+    outline: none;
+    border: none;
+    width: 100%;
+}
+
+.div_input{
+    width: 100%;
+    padding-bottom: 15px;
+}
+
+.div_input input{
+    font-size: 22px;
+    padding: 15px;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.div_input input:focus{
+    background: #dadada;
+    border: 1px solid #226fad;
+}
+
+.submit{
+    width: 100%;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.submit div{
+    width: 90%;
+    border-radius: 40px 5px;
+    overflow: hidden;
+}
+
+.submit div button{
+    cursor: pointer;
+    background: linear-gradient(to right, #000000, rgb(34, 111, 173));
+    color: #fff;
+    font-family: GeforceB;
+    padding: 15px 0;
+    font-size: 25px;
+}
+
+.regtext{
+    width: 100%;
+    text-align: center;
+}
+
+.regtext p{
+    color: #000000;
+    padding-bottom: 10px;
+}
+
+.regtext p a{
+    text-decoration: none;
+    color: #226fad;
+    font-family: GeforceB;
+}
+
+.submit div button:hover{
+    background: linear-gradient(to right, rgb(34, 111, 173), #000000);
+}
+
+.submit div button:active{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.regtext p a:hover{
+    color: rgb(0, 255, 191);
+}
+
+.regtext p a:active{
+    color: rgb(0, 161, 121);
+}
+
+.error{
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.719);
+    text-align: center;
+    color: #000000;
+    margin-top: 15px;
+    color: rgb(255, 0, 0);
+    font-family: GeforceB;
+    margin: 15px;
+}
+
+.div_esp{
+    position: absolute;
+    background-color: rgb(255, 91, 91);;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,0.15);
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    padding: 10px;
+    font-size: 15px;
+    visibility: hidden;
+    color: #ffffff;
+}
+
+.esp:hover > .div_esp{
+    visibility: visible;
+}
+
+@media (max-width:399px){
+    .form{
+        padding: 40px 20px;
+    }
+
+    .submit div{
+        border-radius: 10px;
+    }
+
+    .div_esp{
+        left: 40px;
+        padding: 5px;
+    }
+}

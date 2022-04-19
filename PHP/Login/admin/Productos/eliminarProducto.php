@@ -1,5 +1,5 @@
 <?php
-    include("../../includes/connection.php");
+    include("../../includes_login/connection.php");
     $fila = $connection->prepare("SELECT imagen FROM productos WHERE cod_producto='".$_POST['id']."'");
     $fila->execute();
     $id = $fila->fetch();

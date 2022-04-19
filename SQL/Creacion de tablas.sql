@@ -6,7 +6,7 @@ CREATE DATABASE sebpolpier;
 USE sebpolpier;
 
 create table usuarios(
-	id int auto_increment not null,
+	id_user int auto_increment not null,
     usuario varchar (100) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null unique,
     email varchar (100) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null unique,
     nombres varchar (100) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null,
@@ -17,7 +17,7 @@ create table usuarios(
     ciudad varchar (100) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null,
     telefono int not null,
     adminis bit not null,
-	primary key (id)
+	primary key (id_user)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 create table marcas(
@@ -40,7 +40,7 @@ create table proveedores(
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 create table productos (
-	cod_producto varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null,
+	cod_producto varchar(50) not null,
 	cod_marca varchar(50) not null,
 	cod_categoria varchar(50) not null,
 	cod_prov varchar(50) not null,
@@ -48,11 +48,30 @@ create table productos (
 	imagen varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null,
 	nombre varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null,
 	stock int not null,
-	precio_dolares float not null,
-	precio_soles float not null,
+	precio float not null, /* precio en dolares */
 	primary key (cod_producto),
 	foreign key (cod_marca) references marcas(cod_marca),
 	foreign key (cod_categoria) references categorias(cod_categoria),
     foreign key (cod_prov) references proveedores(cod_prov)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+create table ventas(
+	id_venta int auto_increment not null,
+    id_user int not null,
+    montoFinal float not null, /* monto final en dolares */
+    fecha_compra datetime not null,    
+    primary key (id_venta),
+	foreign key (id_user) references usuarios(id_user)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+create table det_venta(
+	id_detVent int auto_increment not null,
+    id_venta int not null,
+    cod_producto varchar(50) not null,
+    cantidad int not null,
+    subtotal float not null, /* subtotal en dolares */
+    primary key (id_detVent),
+    foreign key (id_venta) references ventas(id_venta),
+	foreign key (cod_producto) references productos(cod_producto)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

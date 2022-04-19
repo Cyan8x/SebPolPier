@@ -1,19 +1,42 @@
-.formulario_lisproducts{
-    max-width: 1280px;
+.main{
+    width: 80%;
     margin: 0 auto;
-    margin-top: 130px;
+    padding-top: 150px;
+}
+
+/*? FORMULARIO */
+
+.formulario_lisproducts{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formulario, .lisproducts{
+    background: #fff;
+    color: black;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 15px;
 }
 
 .formulario{
-    float: left;
-    width: 49%;
+    flex: 2;
 }
 
 .lisproducts{
-    float: right;
-    width: 49%;
+    flex: 1;
 }
 
+.titulo{
+    margin: 0;
+    padding: 0;
+    font-family: GeforceB;
+    color: rgb(34, 111, 173);
+    font-size: 35px;
+}
+
+/*
 .lisproducts_div{
     padding: 15px 0;
 }
@@ -54,4 +77,4 @@
     width: 100%;
     display: inline-block;
     padding: 7.5px 0;
-}
+} */

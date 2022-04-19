@@ -29,9 +29,9 @@ class PDF extends FPDF
     }
 }
 
-require("./../Login/includes/connection.php");
+require("./../Login/includes_login/connection.php");
 
-$sql1 = 'SELECT ventas.*, detalle2_venta.monto_finalD, detalle2_venta.monto_finalS FROM ventas INNER JOIN detalle2_venta ON ventas.cod_venta = detalle2_venta.cod_venta';
+$sql1 = 'SELECT ventas.*, usuarios.* FROM ventas INNER JOIN usuarios ON usuarios.id_user = ventas.id_user';
 
 $pdf = new PDF();
 $pdf->AliasNbPages();
@@ -41,52 +41,44 @@ $pdf->SetFont('Arial', 'B', 8);
 
 foreach ($connection->query($sql1) as $result1) {
     $pdf->Cell(8, 5, 'Cod.', 1, 0, 'C', 0);
+    $pdf->Cell(17, 5, 'Id_Usuario', 1, 0, 'C', 0);
     $pdf->Cell(17, 5, 'Usuario', 1, 0, 'C', 0);
-    $pdf->Cell(25, 5, 'Nombres', 1, 0, 'C', 0);
     $pdf->Cell(25, 5, 'Apellidos', 1, 0, 'C', 0);
-    $pdf->Cell(15, 5, 'Dni', 1, 0, 'C', 0);
-    $pdf->Cell(35, 5, 'Email', 1, 0, 'C', 0);
+    $pdf->Cell(17, 5, 'Dni', 1, 0, 'C', 0);
     $pdf->Cell(52, 5, 'Direccion', 1, 0, 'C', 0);
-    $pdf->Cell(15, 5, 'Ciudad', 1, 0, 'C', 0);
-    $pdf->Cell(16, 5, 'Telefono', 1, 0, 'C', 0);
-    $pdf->Cell(19, 5, 'Fech. Comp.', 1, 0, 'C', 0);
-    $pdf->Cell(16, 5, 'Estado', 1, 0, 'C', 0);
-    $pdf->Cell(16, 5, 'Monto F. $', 1, 0, 'C', 0);
-    $pdf->Cell(16, 5, 'Monto F. S/', 1, 1, 'C', 0);
-    $pdf->Cell(8, 5, $result1['cod_venta'], 1, 0, 'C', 0);
+    $pdf->Cell(17, 5, 'Ciudad', 1, 0, 'C', 0);
+    $pdf->Cell(20, 5, 'Telefono', 1, 0, 'C', 0);
+    $pdf->Cell(30, 5, 'Fecha Compra', 1, 0, 'C', 0);
+    $pdf->Cell(40, 5, 'Estado', 1, 0, 'C', 0);
+    $pdf->Cell(17, 5, 'Monto Final', 1, 1, 'C', 0);
+    $pdf->Cell(8, 5, $result1['id_venta'], 1, 0, 'C', 0);
+    $pdf->Cell(17, 5, $result1['id_user'], 1, 0, 'C', 0);
     $pdf->Cell(17, 5, $result1['usuario'], 1, 0, 'C', 0);
-    $pdf->Cell(25, 5, $result1['nombres'], 1, 0, 'C', 0);
     $pdf->Cell(25, 5, $result1['apellidos'], 1, 0, 'C', 0);
-    $pdf->Cell(15, 5, $result1['dni'], 1, 0, 'C', 0);
-    $pdf->Cell(35, 5, $result1['email'], 1, 0, 'C', 0);
+    $pdf->Cell(17, 5, $result1['dni'], 1, 0, 'C', 0);
     $pdf->Cell(52, 5, $result1['direccion'], 1, 0, 'C', 0);
-    $pdf->Cell(15, 5, $result1['ciudad'], 1, 0, 'C', 0);
-    $pdf->Cell(16, 5, $result1['telefono'], 1, 0, 'C', 0);
-    $pdf->Cell(19, 5, $result1['fecha_compra'], 1, 0, 'C', 0);
-    $pdf->Cell(16, 5, $result1['estado'], 1, 0, 'C', 0);
-    $pdf->Cell(16, 5, $result1['monto_finalD'], 1, 0, 'C', 0);
-    $pdf->Cell(16, 5, $result1['monto_finalS'], 1, 1, 'C', 0);
-    $pdf->Cell(2, 5, ' ', 0, 0, 'C', 0);
-    $pdf->Cell(23, 5, 'Cod. Prod.', 1, 0, 'C', 0);
+    $pdf->Cell(17, 5, $result1['ciudad'], 1, 0, 'C', 0);
+    $pdf->Cell(20, 5, $result1['telefono'], 1, 0, 'C', 0);
+    $pdf->Cell(30, 5, $result1['fecha_compra'], 1, 0, 'C', 0);
+    $pdf->Cell(40, 5, $result1['estado'], 1, 0, 'C', 0);
+    $pdf->Cell(17, 5, '$ '.$result1['montoFinal'], 1, 1, 'C', 0);
+    $pdf->Cell(4, 5, ' ', 0, 0, 'C', 0);
+    $pdf->Cell(34, 5, 'Cod. Prod.', 1, 0, 'C', 0);
     $pdf->Cell(25, 5, 'Imagen', 1, 0, 'C', 0);
-    $pdf->Cell(127, 5, 'Nombre', 1, 0, 'C', 0);
+    $pdf->Cell(130, 5, 'Nombre', 1, 0, 'C', 0);
     $pdf->Cell(15, 5, 'Cant.', 1, 0, 'C', 0);
-    $pdf->Cell(16, 5, 'Prec. $', 1, 0, 'C', 0);
-    $pdf->Cell(19, 5, 'Prec. S/', 1, 0, 'C', 0);
-    $pdf->Cell(16, 5, ' SubTot. $', 1, 0, 'C', 0);
-    $pdf->Cell(16, 5, 'SubTot. S/', 1, 0, 'C', 0);
+    $pdf->Cell(16, 5, 'Precio', 1, 0, 'C', 0);
+    $pdf->Cell(16, 5, ' Subtotal', 1, 0, 'C', 0);
     $pdf->Cell(16, 5, ' ', 0, 1, 'C', 0);
-    $sql2 = 'SELECT detalle1_venta.*, productos.imagen, productos.nombre FROM detalle1_venta INNER JOIN productos ON productos.cod_producto = detalle1_venta.cod_producto WHERE cod_venta = ' . $result1['cod_venta'];
+    $sql2 = 'SELECT det_venta.*, productos.* FROM det_venta INNER JOIN productos ON productos.cod_producto = det_venta.cod_producto WHERE id_venta = '.$result1['id_venta'];
     foreach ($connection->query($sql2) as $result2) {
-        $pdf->Cell(2, 25, ' ', 0, 0, 'C', 0);
-        $pdf->Cell(23, 25, $result2['cod_producto'], 1, 0, 'C', 0);
+        $pdf->Cell(4, 25, ' ', 0, 0, 'C', 0);
+        $pdf->Cell(34, 25, $result2['cod_producto'], 1, 0, 'C', 0);
         $pdf->Cell(25, 25, $pdf->Image('../../imagenes/' . $result2['imagen'], $pdf->GetX(), $pdf->GetY(), 25), 1, 0, 'C', 0);
-        $pdf->Cell(127, 25, $result2['nombre'], 1, 0, 'C', 0);
+        $pdf->Cell(130, 25, $result2['nombre'], 1, 0, 'C', 0);
         $pdf->Cell(15, 25, $result2['cantidad'], 1, 0, 'C', 0);
-        $pdf->Cell(16, 25, $result2['precio_dolares'], 1, 0, 'C', 0);
-        $pdf->Cell(19, 25, $result2['precio_soles'], 1, 0, 'C', 0);
-        $pdf->Cell(16, 25, $result2['subtotal_dolares'], 1, 0, 'C', 0);
-        $pdf->Cell(16, 25, $result2['subtotal_soles'], 1, 0, 'C', 0);
+        $pdf->Cell(16, 25, '$ '.$result2['precio'], 1, 0, 'C', 0);
+        $pdf->Cell(16, 25, '$ '.$result2['subtotal'], 1, 0, 'C', 0);
         $pdf->Cell(16, 25, ' ', 0, 1, 'C', 0);
     }
 }

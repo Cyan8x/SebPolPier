@@ -1,8 +1,8 @@
 <?php
-require_once("./../../includes/connection.php");
+require_once("./../../includes_login/connection.php");
 session_start();
 if (isset($_POST["guardar"])) {
-    if (!empty($_POST['cod_producto']) && !empty($_POST['marca']) && !empty($_POST['categoria']) && !empty($_POST['proveedor']) && !empty($_POST['cod_orig_prod']) && !empty($_POST['nombre']) && !empty($_POST['stock']) && !empty($_POST['precio_dolares'])  && !empty($_POST['precio_soles'])) {
+    if (!empty($_POST['cod_producto']) && !empty($_POST['marca']) && !empty($_POST['categoria']) && !empty($_POST['proveedor']) && !empty($_POST['cod_orig_prod']) && !empty($_POST['nombre']) && !empty($_POST['stock']) && !empty($_POST['precio'])) {
         $carpeta = "../../../../imagenes/";
         $nombre = $_FILES['imagen']['name'];
         $temp = explode('.', $nombre);
@@ -17,8 +17,7 @@ if (isset($_POST["guardar"])) {
                 $cod_orig_prod = $_POST['cod_orig_prod'];
                 $nombre = $_POST['nombre'];
                 $stock = $_POST['stock'];
-                $precio_dolares = $_POST['precio_dolares'];
-                $precio_soles = $_POST['precio_soles'];
+                $precio = $_POST['precio'];
                 $query = $connection->prepare("SELECT * FROM productos WHERE COD_PRODUCTO=:cod_producto OR COD_ORIG_PROD=:cod_orig_prod");
                 $query->bindParam("cod_producto", $cod_producto, PDO::PARAM_STR);
                 $query->bindParam("cod_orig_prod", $cod_orig_prod, PDO::PARAM_STR);
@@ -27,7 +26,7 @@ if (isset($_POST["guardar"])) {
                     header("Location: ./productos.php?error=El COD_PRODUCTO o COD_ORIGNAL_PRODUCTO ingresado ya se encuentra registrado");
                 }
                 if ($query->rowCount() == 0) {
-                    $query = $connection->prepare("INSERT INTO productos(COD_PRODUCTO,COD_MARCA,COD_CATEGORIA,COD_PROV,COD_ORIG_PROD,IMAGEN,NOMBRE,STOCK,PRECIO_DOLARES,PRECIO_SOLES) VALUES (:cod_producto,:marca,:categoria,:proveedor,:cod_orig_prod,'".$nombreFinal."',:nombre,:stock,:precio_dolares,:precio_soles)");
+                    $query = $connection->prepare("INSERT INTO productos(COD_PRODUCTO,COD_MARCA,COD_CATEGORIA,COD_PROV,COD_ORIG_PROD,IMAGEN,NOMBRE,STOCK,PRECIO) VALUES (:cod_producto,:marca,:categoria,:proveedor,:cod_orig_prod,'".$nombreFinal."',:nombre,:stock,:precio)");
                     $query->bindParam("cod_producto", $cod_producto, PDO::PARAM_STR);
                     $query->bindParam("marca", $marca, PDO::PARAM_STR);
                     $query->bindParam("categoria", $categoria, PDO::PARAM_STR);
@@ -35,8 +34,7 @@ if (isset($_POST["guardar"])) {
                     $query->bindParam("cod_orig_prod", $cod_orig_prod, PDO::PARAM_STR);
                     $query->bindParam("nombre", $nombre, PDO::PARAM_STR);
                     $query->bindParam("stock", $stock, PDO::PARAM_INT);
-                    $query->bindParam("precio_dolares", $precio_dolares, PDO::PARAM_STR);
-                    $query->bindParam("precio_soles", $precio_soles, PDO::PARAM_STR);
+                    $query->bindParam("precio", $precio, PDO::PARAM_STR);
                     $result = $query->execute();
                     if ($result) {
                         header("Location: ./productos.php?success=Producto correctamente insertado");

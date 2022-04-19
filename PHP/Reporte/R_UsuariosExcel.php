@@ -42,13 +42,13 @@ $sheet->getColumnDimension('H')->setAutoSize(true);
 $sheet->getColumnDimension('I')->setAutoSize(true);
 $sheet->getColumnDimension('J')->setAutoSize(true);
 
-require("./../Login/includes/connection.php");
+require("./../Login/includes_login/connection.php");
 
 $sql = 'SELECT * FROM usuarios';
 $var = 4;
 foreach ($connection->query($sql) as $result) {
     $var++;
-    $sheet->setCellValue('B'.$var, $result['id_usuario']);
+    $sheet->setCellValue('B'.$var, $result['id_user']);
     $sheet->setCellValue('C'.$var, $result['usuario']);
     $sheet->setCellValue('D'.$var, $result['email']);
     $sheet->setCellValue('E'.$var, $result['nombres']);

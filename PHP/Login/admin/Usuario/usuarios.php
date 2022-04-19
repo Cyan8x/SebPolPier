@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../includes/connection.php");
+include("../../includes_login/connection.php");
 if (!isset($_SESSION['session_admin'])) {
     header("Location: ./../../../../index.php");
 }
@@ -118,7 +118,7 @@ if (!isset($_SESSION['session_admin'])) {
                             foreach ($connection->query($sql) as $result) {
                             ?>
                                 <tr>
-                                    <td><?php echo $result['id_usuario']; ?></td>
+                                    <td><?php echo $result['id_user']; ?></td>
                                     <td><?php echo $result['usuario']; ?></td>
                                     <td><?php echo $result['email']; ?></td>
                                     <td><?php echo $result['nombres']; ?></td>
@@ -129,10 +129,10 @@ if (!isset($_SESSION['session_admin'])) {
                                     <td><?php echo $result['ciudad']; ?></td>
                                     <td><?php echo $result['telefono']; ?></td>
                                     <td>
-                                        <button class="btn btn-primary btn-small btnEditar" data-id="<?php echo $result['id_usuario'] ?>" data-usuario="<?php echo $result['usuario'] ?>" data-email="<?php echo $result['email'] ?>" data-nombres="<?php echo $result['nombres'] ?>" data-apellidos="<?php echo $result['apellidos'] ?>" data-contraseña="<?php echo $result['contraseña'] ?>" data-dni="<?php echo $result['dni'] ?>" data-direccion="<?php echo $result['direccion'] ?>" data-ciudad="<?php echo $result['ciudad'] ?>" data-telefono="<?php echo $result['telefono'] ?>" data-toggle="modal" data-target="#modalEditar">
+                                        <button class="btn btn-primary btn-small btnEditar" data-id="<?php echo $result['id_user'] ?>" data-usuario="<?php echo $result['usuario'] ?>" data-email="<?php echo $result['email'] ?>" data-nombres="<?php echo $result['nombres'] ?>" data-apellidos="<?php echo $result['apellidos'] ?>" data-contraseña="<?php echo $result['contraseña'] ?>" data-dni="<?php echo $result['dni'] ?>" data-direccion="<?php echo $result['direccion'] ?>" data-ciudad="<?php echo $result['ciudad'] ?>" data-telefono="<?php echo $result['telefono'] ?>" data-toggle="modal" data-target="#modalEditar">
                                             <i class="fa fa-edit"></i>
                                         </button>
-                                        <button class="btn btn-danger btn-small btnEliminar" data-id="<?php echo $result['id_usuario'] ?>" data-toggle="modal" data-target="#modalEliminar">
+                                        <button class="btn btn-danger btn-small btnEliminar" data-id="<?php echo $result['id_user'] ?>" data-toggle="modal" data-target="#modalEliminar">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </td>
@@ -240,7 +240,7 @@ if (!isset($_SESSION['session_admin'])) {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <input type="hidden" name="id_usuario" placeholder="Id_Usuario" id="id_usuarioEdit" class="form-control" required>
+                            <input type="hidden" name="id_user" placeholder="Id_Usuario" id="id_userEdit" class="form-control" required>
                             <div class="form-group">
                                 <label for="usuarioEdit">Usuario</label>
                                 <input type="text" name="usuario" placeholder="Usuario" id="usuarioEdit" class="form-control" required>
@@ -347,7 +347,7 @@ if (!isset($_SESSION['session_admin'])) {
                 });
             });
             $(".btnEditar").click(function() {
-                $("#id_usuarioEdit").val($(this).data('id'));
+                $("#id_userEdit").val($(this).data('id'));
                 $("#usuarioEdit").val($(this).data('usuario'));
                 $("#emailEdit").val($(this).data('email'));
                 $("#nombresEdit").val($(this).data('nombres'));

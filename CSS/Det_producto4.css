@@ -58,7 +58,6 @@
     border-radius: 40px 5px;
     overflow: hidden;
     transition: all .5s;
-    box-shadow: 2px 2px 2px 2px rgb(255 255 255 / 50%), -2px -2px 2px 2px rgb(255 255 255 / 50%);
 }
 
 .submit div a{
@@ -72,6 +71,10 @@
     padding: 15px 0;
     font-size: 20px;
     text-align: center;
+}
+
+.submit div:hover{
+    box-shadow: 2px 2px 2px 2px rgb(255 255 255 / 50%), -2px -2px 2px 2px rgb(255 255 255 / 50%);
 }
 
 .submit div a:hover{

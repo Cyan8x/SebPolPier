@@ -1,5 +1,5 @@
 <?php
-require_once("../../includes/connection.php");
+require_once("../../includes_login/connection.php");
 session_start();
 if (isset($_POST["editar"])) {
     if (!empty($_POST['nombres']) && !empty($_POST['apellidos'] && !empty($_POST['usuario'])) && !empty($_POST['email']) && !empty($_POST['dni']) && !empty($_POST['direccion']) && !empty($_POST['ciudad']) && !empty($_POST['telefono']) && !empty($_POST['contraseña'])) {
@@ -13,7 +13,7 @@ if (isset($_POST["editar"])) {
         $telefono = $_POST['telefono'];
         $contraseña = $_POST['contraseña'];
         $contraseña_hash = password_hash($contraseña, PASSWORD_BCRYPT);
-        $sql = "SELECT * FROM usuarios WHERE id_usuario='" . $_POST['id_usuario'] . "'";
+        $sql = "SELECT * FROM usuarios WHERE id_user='" . $_POST['id_user'] . "'";
         foreach ($connection->query($sql) as $result) {
             if ($result['usuario'] != $usuario) {
                 $query = $connection->prepare("SELECT * FROM usuarios WHERE USUARIO=:usuario");
@@ -23,7 +23,7 @@ if (isset($_POST["editar"])) {
                     header("Location: ./usuarios.php?error=El nombre de usuario ingresado ya existe. Por favor, intente con otra.");
                 }
                 if ($query->rowCount() == 0) {
-                    $query = $connection->prepare("UPDATE usuarios SET USUARIO=:usuario WHERE id_usuario='" . $_POST['id_usuario'] . "'");
+                    $query = $connection->prepare("UPDATE usuarios SET USUARIO=:usuario WHERE id_user='" . $_POST['id_user'] . "'");
                     $query->bindParam("usuario", $usuario, PDO::PARAM_STR);
                     $result = $query->execute();
                 } else {
@@ -38,7 +38,7 @@ if (isset($_POST["editar"])) {
                     header("Location: ./usuarios.php?error=El correo electrónico ingresado ya se encuentra registrado");
                 }
                 if ($query->rowCount() == 0) {
-                    $query = $connection->prepare("UPDATE usuarios SET EMAIL=:email WHERE id_usuario='" . $_POST['id_usuario'] . "'");
+                    $query = $connection->prepare("UPDATE usuarios SET EMAIL=:email WHERE id_user='" . $_POST['id_user'] . "'");
                     $query->bindParam("email", $email, PDO::PARAM_STR);
                     $result = $query->execute();
                 } else {
@@ -56,7 +56,7 @@ if (isset($_POST["editar"])) {
                         header("Location: ./usuarios.php?error=El DNI ingresado ya se encuentra registrado");
                     }
                     if ($query->rowCount() == 0) {
-                        $query = $connection->prepare("UPDATE usuarios SET DNI=:dni WHERE id_usuario='" . $_POST['id_usuario'] . "'");
+                        $query = $connection->prepare("UPDATE usuarios SET DNI=:dni WHERE id_user='" . $_POST['id_user'] . "'");
                         $query->bindParam("dni", $dni, PDO::PARAM_INT);
                         $result = $query->execute();
                     }
@@ -73,14 +73,14 @@ if (isset($_POST["editar"])) {
                         header("Location: ./usuarios.php?error=El telefono ingresado ya se encuentra registrado");
                     }
                     if ($query->rowCount() == 0) {
-                        $query = $connection->prepare("UPDATE usuarios SET TELEFONO=:telefono WHERE id_usuario='" . $_POST['id_usuario'] . "'");
+                        $query = $connection->prepare("UPDATE usuarios SET TELEFONO=:telefono WHERE id_user='" . $_POST['id_user'] . "'");
                         $query->bindParam("telefono", $telefono, PDO::PARAM_INT);
                         $result = $query->execute();
                     }
                 }
             }
         }
-        $query = $connection->prepare("UPDATE usuarios SET NOMBRES=:nombres, APELLIDOS=:apellidos, CONTRASEÑA=:contrasena_hash, DIRECCION=:direccion, CIUDAD=:ciudad WHERE id_usuario='" . $_POST['id_usuario'] . "'");
+        $query = $connection->prepare("UPDATE usuarios SET NOMBRES=:nombres, APELLIDOS=:apellidos, CONTRASEÑA=:contrasena_hash, DIRECCION=:direccion, CIUDAD=:ciudad WHERE id_user='" . $_POST['id_user'] . "'");
         $query->bindParam("nombres", $nombres, PDO::PARAM_STR);
         $query->bindParam("apellidos", $apellidos, PDO::PARAM_STR);
         $query->bindParam("contrasena_hash", $contraseña_hash, PDO::PARAM_STR);

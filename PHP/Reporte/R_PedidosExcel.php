@@ -41,55 +41,49 @@ $styleArray2 = [
 $sheet->getStyle('D2')->getFont()->setName('Arial')->setBold(true)->setSize(20)->setUnderline(true);
 $sheet->getStyle('D2')->applyFromArray($styleArray0);
 
-require("./../Login/includes/connection.php");
+require("./../Login/includes_login/connection.php");
 
-$sql1 = 'SELECT ventas.*, detalle2_venta.monto_finalD, detalle2_venta.monto_finalS FROM ventas INNER JOIN detalle2_venta ON ventas.cod_venta = detalle2_venta.cod_venta';
+$sql1 = 'SELECT ventas.*, usuarios.* FROM ventas INNER JOIN usuarios ON usuarios.id_user = ventas.id_user';
 $var = 4;
 foreach ($connection->query($sql1) as $result1) {
     $sheet->setCellValue('B' . $var, 'COD.');
-    $sheet->setCellValue('C' . $var, 'USUARIO');
-    $sheet->setCellValue('D' . $var, 'EMAIL');
-    $sheet->setCellValue('E' . $var, 'NOMBRES');
-    $sheet->setCellValue('F' . $var, 'APELLIDOS');
-    $sheet->setCellValue('G' . $var, 'DNI');
-    $sheet->setCellValue('H' . $var, 'DIRECCION');
-    $sheet->setCellValue('I' . $var, ' CIUDAD ');
-    $sheet->setCellValue('J' . $var, ' TELEFONO ');
-    $sheet->setCellValue('K' . $var, 'FECH. COMP.');
-    $sheet->setCellValue('L' . $var, 'ESTADO');
-    $sheet->setCellValue('M' . $var, 'MONTO F. $');
-    $sheet->setCellValue('N' . $var, 'MONTO F. S/');
-    $sheet->getStyle('B' . $var . ':N' . $var)->getFont()->setBold(true)->setSize(11);
-    $sheet->getStyle('B' . $var . ':N' . $var)->applyFromArray($styleArray2);
+    $sheet->setCellValue('C' . $var, 'ID_USUARIO');
+    $sheet->setCellValue('D' . $var, 'USUARIO');
+    $sheet->setCellValue('E' . $var, 'APELLIDOS');
+    $sheet->setCellValue('F' . $var, 'DNI');
+    $sheet->setCellValue('G' . $var, 'DIRECCION');
+    $sheet->setCellValue('H' . $var, ' CIUDAD ');
+    $sheet->setCellValue('I' . $var, ' TELEFONO ');
+    $sheet->setCellValue('J' . $var, 'FECH. COMP.');
+    $sheet->setCellValue('K' . $var, 'ESTADO');
+    $sheet->setCellValue('L' . $var, 'MONTO FINAL');
+    $sheet->getStyle('B' . $var . ':L' . $var)->getFont()->setBold(true)->setSize(11);
+    $sheet->getStyle('B' . $var . ':L' . $var)->applyFromArray($styleArray2);
     $var++;
-    $sheet->setCellValue('B' . $var, $result1['cod_venta']);
-    $sheet->setCellValue('C' . $var, $result1['usuario']);
-    $sheet->setCellValue('D' . $var, $result1['email']);
-    $sheet->setCellValue('E' . $var, $result1['nombres']);
-    $sheet->setCellValue('F' . $var, $result1['apellidos']);
-    $sheet->setCellValue('G' . $var, $result1['dni']);
-    $sheet->setCellValue('H' . $var, $result1['direccion']);
-    $sheet->setCellValue('I' . $var, $result1['ciudad']);
-    $sheet->setCellValue('J' . $var, $result1['telefono']);
-    $sheet->setCellValue('K' . $var, $result1['fecha_compra']);
-    $sheet->setCellValue('L' . $var, $result1['estado']);
-    $sheet->setCellValue('M' . $var, $result1['monto_finalD']);
-    $sheet->setCellValue('N' . $var, $result1['monto_finalS']);
-    $sheet->getStyle('B' . $var . ':N' . $var)->getFont()->setSize(10);
+    $sheet->setCellValue('B' . $var, $result1['id_venta']);
+    $sheet->setCellValue('C' . $var, $result1['id_user']);
+    $sheet->setCellValue('D' . $var, $result1['usuario']);
+    $sheet->setCellValue('E' . $var, $result1['apellidos']);
+    $sheet->setCellValue('F' . $var, $result1['dni']);
+    $sheet->setCellValue('G' . $var, $result1['direccion']);
+    $sheet->setCellValue('H' . $var, $result1['ciudad']);
+    $sheet->setCellValue('I' . $var, $result1['telefono']);
+    $sheet->setCellValue('J' . $var, $result1['fecha_compra']);
+    $sheet->setCellValue('K' . $var, $result1['estado']);
+    $sheet->setCellValue('L' . $var, '$ '.$result1['montoFinal']);
+    $sheet->getStyle('B' . $var . ':L' . $var)->getFont()->setSize(10);
     $var++;
     $sheet->setCellValue('C' . $var, 'COD. PROD.');
     $sheet->setCellValue('D' . $var, 'IMAGEN');
     $sheet->mergeCells('E' . $var . ':H' . $var);
     $sheet->setCellValue('E' . $var, 'NOMBRE');
     $sheet->setCellValue('I' . $var, 'CANT.');
-    $sheet->setCellValue('J' . $var, 'PREC. $');
-    $sheet->setCellValue('K' . $var, 'PREC. S/');
-    $sheet->setCellValue('L' . $var, 'SUBTOT. $');
-    $sheet->setCellValue('M' . $var, 'SUBTOT. S/');
-    $sheet->getStyle('C' . $var . ':M' . $var)->getFont()->setBold(true)->setSize(11);
-    $sheet->getStyle('C' . $var . ':M' . $var)->applyFromArray($styleArray2);
+    $sheet->setCellValue('J' . $var, 'PRECIO');
+    $sheet->setCellValue('K' . $var, 'SUBTOTOTAL');
+    $sheet->getStyle('C' . $var . ':K' . $var)->getFont()->setBold(true)->setSize(11);
+    $sheet->getStyle('C' . $var . ':K' . $var)->applyFromArray($styleArray2);
     $var++;
-    $sql2 = 'SELECT detalle1_venta.*, productos.imagen, productos.nombre FROM detalle1_venta INNER JOIN productos ON productos.cod_producto = detalle1_venta.cod_producto WHERE cod_venta = ' . $result1['cod_venta'];
+    $sql2 = 'SELECT det_venta.*, productos.* FROM det_venta INNER JOIN productos ON productos.cod_producto = det_venta.cod_producto WHERE id_venta = '.$result1['id_venta'];
     foreach ($connection->query($sql2) as $result2) {
         $sheet->setCellValue('C' . $var, $result2['cod_producto']);
         $sheeti = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
@@ -100,15 +94,13 @@ foreach ($connection->query($sql1) as $result1) {
         $sheeti->setOffsetX(0);
         $sheeti->setOffsetY(0);
         $sheeti->setWorksheet($sheet);
-        $sheet->getStyle('C' . $var . ':M' . $var)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getStyle('C' . $var . ':K' . $var)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
         $sheet->mergeCells('E' . $var . ':H' . $var);
         $sheet->setCellValue('E' . $var, $result2['nombre']);
         $sheet->setCellValue('I' . $var, $result2['cantidad']);
-        $sheet->setCellValue('J' . $var, $result2['precio_dolares']);
-        $sheet->setCellValue('K' . $var, $result2['precio_soles']);
-        $sheet->setCellValue('L' . $var, $result2['subtotal_dolares']);
-        $sheet->setCellValue('M' . $var, $result2['subtotal_soles']);
-        $sheet->getStyle('B' . $var . ':N' . $var)->getFont()->setSize(10);
+        $sheet->setCellValue('J' . $var, '$ '.$result2['precio']);
+        $sheet->setCellValue('K' . $var, '$ '.$result2['subtotal']);
+        $sheet->getStyle('B' . $var . ':L' . $var)->getFont()->setSize(10);
         $var++;
     }
 }
@@ -123,12 +115,10 @@ $sheet->getColumnDimension('I')->setAutoSize(true);
 $sheet->getColumnDimension('J')->setAutoSize(true);
 $sheet->getColumnDimension('K')->setAutoSize(true);
 $sheet->getColumnDimension('L')->setAutoSize(true);
-$sheet->getColumnDimension('M')->setAutoSize(true);
-$sheet->getColumnDimension('N')->setAutoSize(true);
 
 
-$sheet->getStyle('B4:N' . $var - 1)->applyFromArray($styleArray1);
-$sheet->getStyle('B4:N' . $var)->getFont()->setName('Arial');
+$sheet->getStyle('B4:L' . $var - 1)->applyFromArray($styleArray1);
+$sheet->getStyle('B4:L' . $var)->getFont()->setName('Arial');
 
 $sheet->setTitle('Reporte de Pedidos(' . $date . ')');
 

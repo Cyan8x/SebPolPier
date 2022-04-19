@@ -2,28 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Glide -->
-    <link rel="stylesheet" href="./../CSS/glide.core.min.css">
-    <link rel="stylesheet" href="./../CSS/glide.theme.min.css">
-    <!-- Base -->
-    <link rel="stylesheet" href="../CSS/base10.css">
+    <?php
+    include("includes/metadatos.php")
+    ?>
     <!-- Personal -->
     <link rel="stylesheet" href="../CSS/index2.css">
-    <!-- Normalize -->
-    <link rel="stylesheet" href="../CSS/normalize.css">
-    <!-- Icon -->
-    <link rel="shortcut icon" href="../imagenes/S.jpg">
-    <!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/4c62087cc0.js" crossorigin="anonymous"></script>
     <title>SebPolPier</title>
 </head>
 
 <body>
     <?php
-    include("Login/includes/header1.php")
+    include("includes/header1.php")
     ?>
 
     <div class="main">
@@ -92,9 +81,6 @@
         <div class="subtitle">
             <h3>Ultima Tendencia</h3>
         </div>
-        <?php
-        include("Login/includes/connection.php");
-        ?>
         <div class="tarjetas">
             <?php
             $sql = 'SELECT * FROM productos WHERE cod_producto = \'TG2021GIG001\' OR cod_producto = \'PR2021INT004\' OR cod_producto = \'PM2021ASR001\'';
@@ -112,7 +98,7 @@
                         <?php
                         echo "<a target='_blank' href=\"Det_producto.php?cod_producto=" . $result['cod_producto'] . "\"><h2>" . $result['nombre'] . "</h2></a>
                             <p>En stock: " . $result['stock'] . "</p>
-                            <p style='color: rgb(13, 128, 13);'>$" . number_format($result['precio_dolares'], 2, '.', ',') . " - S/" . number_format($result['precio_soles'], 2, '.', ',') . "</p>";
+                            <p style='color: rgb(13, 128, 13);'>Precio: $" . number_format($result['precio'], 2, '.', ',');
                         ?>
                     </div>
                 </div>
@@ -123,7 +109,7 @@
     </div>
 
     <?php
-    include("Login/includes/footer.php")
+    include("includes/footer.php")
     ?>
     <!-- Glide JS -->
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>

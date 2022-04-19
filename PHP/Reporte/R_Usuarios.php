@@ -29,7 +29,7 @@ function Footer()
 }
 }
 
-require("./../Login/includes/connection.php");
+require("./../Login/includes_login/connection.php");
 
 $pdf = new PDF();
 $pdf->AliasNbPages();
@@ -48,7 +48,7 @@ $pdf->Cell(60,5, 'Direccion',1,0,'C',0);
 $pdf->Cell(20,5, 'Ciudad',1,0,'C',0);
 $pdf->Cell(20,5, 'Telefono',1,1,'C',0);
 foreach ($connection->query($sql2) as $result) {
-    $pdf->Cell(10,5, $result['id_usuario'],1,0,'C',0);
+    $pdf->Cell(10,5, $result['id_user'],1,0,'C',0);
     $pdf->Cell(40,5, $result['usuario'],1,0,'C',0);
     $pdf->Cell(50,5, $result['email'],1,0,'C',0);
     $pdf->Cell(30,5, $result['nombres'],1,0,'C',0);

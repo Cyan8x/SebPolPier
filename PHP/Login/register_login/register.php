@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../CSS/registerx.css">
+    <link rel="stylesheet" href="../../../CSS/login_register.css">
     <link rel="stylesheet" href="../../../CSS/normalize.css">
     <link rel="shortcut icon" href="../../../imagenes/S.jpg">
     <script src="https://kit.fontawesome.com/4c62087cc0.js" crossorigin="anonymous"></script>
@@ -15,7 +15,7 @@
 <body>
     <?php
     //LLAMA A LA CONEXION CON LA BASE DE DATOS
-    require_once("../includes/connection.php");
+    require_once("../includes_login/connection.php");
     //SE CREA UN SESSION_START PARA SABER SI YA SE INICIO UNA SESIÓN O NO
     session_start();
     //SE CREA UNA ESTRUCTURA CONDICIONAL
@@ -56,7 +56,7 @@
                                 echo '<p class = "error">El correo electrónico ingresado ya se encuentra registrado</p>';
                             }
                             if ($query->rowCount() == 0) {
-                                $query = $connection->prepare("INSERT INTO usuarios(USUARIO,EMAIL,NOMBRES,APELLIDOS,CONTRASEÑA,DNI,DIRECCION,CIUDAD,TELEFONO,ADMINIS) VALUES (:usuario,:email,:nombres,:apellidos,:contrasena_hash,:dni,:direccion,:ciudad,:telefono,1)");
+                                $query = $connection->prepare("INSERT INTO usuarios(USUARIO,EMAIL,NOMBRES,APELLIDOS,CONTRASEÑA,DNI,DIRECCION,CIUDAD,TELEFONO,ADMINIS) VALUES (:usuario,:email,:nombres,:apellidos,:contrasena_hash,:dni,:direccion,:ciudad,:telefono,0)");
                                 $query->bindParam("nombres", $nombres, PDO::PARAM_STR);
                                 $query->bindParam("apellidos", $apellidos, PDO::PARAM_STR);
                                 $query->bindParam("usuario", $usuario, PDO::PARAM_STR);
@@ -93,48 +93,48 @@
     }
     ?>
     <!-- ESTRUCTURA DE FORMULARIO DE REGISTRO DE USUARIOS  -->
-    <div class="container_register">
-        <div class="register">
-            <form name="registerform" class="registerform" action="register.php" method="POST">
-                <h1 class="loginform_titulo">Registro de Usuarios</h1>
+    <div class="container">
+        <div class="form">
+            <form name="registerform" action="register.php" method="POST">
+                <h1>Registro de Usuarios</h1>
                 <div class="div_input">
-                    <input type="text" name="nombres" id="nombres" class="input" size="32" placeholder="Nombres completos">
+                    <input type="text" name="nombres" id="nombres"   placeholder="Nombres completos">
                 </div>
                 <div class="div_input">
-                    <input type="text" name="apellidos" id="apellidos" class="input" size="32" placeholder="Apellidos completos">
+                    <input type="text" name="apellidos" id="apellidos"   placeholder="Apellidos completos">
                 </div>
                 <div class="div_input">
-                    <input type="text" name="usuario" id="usuario" class="input" size="20" placeholder="Nombre de usuario">
+                    <input type="text" name="usuario" id="usuario"  size="20" placeholder="Nombre de usuario">
                 </div>
                 <div class="div_input">
-                    <input type="email" name="email" id="email" class="input" size="32" placeholder="Correo electrónico">
+                    <input type="email" name="email" id="email"   placeholder="Correo electrónico">
                 </div>
                 <div class="div_input">
-                    <input type="number" name="dni" id="dni" class="input" size="32" placeholder="DNI">
+                    <input type="number" name="dni" id="dni"   placeholder="DNI">
                 </div>
                 <div class="div_input">
-                    <input type="text" name="direccion" id="direccion" class="input" size="32" placeholder="Direccion domiciliaria">
+                    <input type="text" name="direccion" id="direccion"   placeholder="Direccion domiciliaria">
                 </div>
                 <div class="div_input">
-                    <input type="text" name="ciudad" id="ciudad" class="input" size="32" placeholder="Ciudad">
+                    <input type="text" name="ciudad" id="ciudad"   placeholder="Ciudad">
                 </div>
                 <div class="div_input">
                     <div class="esp">
-                        <input type="number" name="telefono" id="telefono" class="input" size="32" placeholder="Numero telefónico o celular">
+                        <input type="number" name="telefono" id="telefono"   placeholder="Numero telefónico o celular">
                         <p class="div_esp">
                             No considere el "+51" o el "01"
                         </p>
                     </div>
                 </div>
                 <div class="div_input">
-                    <input type="password" name="contraseña" id="contraseña" class="input" size="32" placeholder="Contraseña">
+                    <input type="password" name="contraseña" id="contraseña"   placeholder="Contraseña">
                 </div>
                 <div class="div_input">
-                    <input type="password" name="contraseña2" id="contraseña2" class="input" size="32" placeholder="Confirmar contraseña">
+                    <input type="password" name="contraseña2" id="contraseña2"   placeholder="Confirmar contraseña">
                 </div>
                 <div class="submit">
-                    <div class="submit_div">
-                        <button type="submit" name="register" class="button" value="Registrarse">Registrarse</button>
+                    <div>
+                        <button type="submit" name="register" value="Registrarse">Registrarse</button>
                     </div>
                 </div>
                 <div class="regtext">

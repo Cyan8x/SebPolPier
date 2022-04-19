@@ -4,7 +4,7 @@
             <img src="../imagenes/SebPolPier.jpg" alt="">
         </a>
         <?php
-        require_once("Login/includes/connection.php");
+        require_once("Login/includes_login/connection.php");
         if (!isset($_SESSION)) {
             session_start();
         }

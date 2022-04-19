@@ -29,7 +29,7 @@ class PDF extends FPDF
     }
 }
 
-require("./../Login/includes/connection.php");
+require("./../Login/includes_login/connection.php");
 
 $sql = 'SELECT productos.*, marca.nombre AS marc, categoria.nombre AS categ, proveedor.nombre AS prov FROM productos INNER JOIN marca ON productos.cod_marca = marca.cod_marca INNER JOIN categoria ON productos.cod_categoria = categoria.cod_categoria INNER JOIN proveedor ON productos.cod_prov = proveedor.cod_prov';
 

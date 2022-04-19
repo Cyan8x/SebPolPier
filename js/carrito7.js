@@ -1,13 +1,3 @@
-// $(document).ready(function(){
-//     if (x === undefined) {
-//         console.log('vacio');
-//     }else{
-//         var y = JSON.parse(x);
-//         console.log(y);
-//     }
-// })
-
-
 function inputCant() {
     $('.reducir').on('click', function(e){
         e.preventDefault();
@@ -16,11 +6,10 @@ function inputCant() {
         } else{
             $(this).parent('div').find('.cant').val(parseInt(1));
         }
-        let precioD = $(this).parent('div').find('input').data('preciod');
-        let precioS = $(this).parent('div').find('input').data('precios');
+        let precio = $(this).parent('div').find('input').data('precio');
         let id = $(this).parent('div').find('input').data('id');
         let cantidad = $(this).parent('div').find('input').val();
-        montoItem(cantidad, precioD, precioS, id);
+        montoItem(cantidad, precio, id);
         montoTotal();
     });
     $('.incrementar').on('click',function (e) {
@@ -31,22 +20,20 @@ function inputCant() {
         }else{
             $(this).parent('div').find('.cant').val(parseInt(stock));
         }
-        let precioD = $(this).parent('div').find('input').data('preciod');
-        let precioS = $(this).parent('div').find('input').data('precios');
+        let precio = $(this).parent('div').find('input').data('precio');
         let id = $(this).parent('div').find('input').data('id');
         let cantidad = $(this).parent('div').find('input').val();
-        montoItem(cantidad, precioD, precioS, id);
+        montoItem(cantidad, precio, id);
         montoTotal();
     });
 }
 
-function montoItem(cantidad, precioD, precioS, id) {
-    let multD = parseFloat(cantidad) * parseFloat(precioD);
-    let multS = parseFloat(cantidad) * parseFloat(precioS);
-    $(".cod_" + id).text("$" + multD + " - S/" + multS);
+function montoItem(cantidad, precio, id) {
+    let mult = parseFloat(cantidad) * parseFloat(precio);
+    $(".cod_" + id).text("$" + mult);
     $.ajax({
         method: 'POST',
-        url: './../PHP/Login/includes/actualizar.php',
+        url: './../PHP/includes_carrito/actualizar.php',
         data: {
             id: id,
             cantidad: cantidad
@@ -57,7 +44,7 @@ function montoItem(cantidad, precioD, precioS, id) {
 function montoTotal() {
     $.ajax({
         method: 'POST',
-        url: './../PHP/Login/includes/MontoFinal.php',
+        url: './../PHP/includes_carrito/MontoFinal.php',
     }).done(function(res){
         $(".Fin").text(res);
     });
@@ -72,7 +59,7 @@ function eliminarItem() {
         var boton = $(this);
         $.ajax({
             method: 'POST',
-            url: './../PHP/Login/includes/eliminarCarrito.php',
+            url: './../PHP/includes_carrito/eliminarCarrito.php',
             data: {
                 id: id
             }
@@ -90,7 +77,7 @@ function eliminarItem() {
 function totalArticulos() {
     $.ajax({
         method: 'POST',
-        url: './../PHP/Login/includes/articulosCar.php',
+        url: './../PHP/includes_carrito/articulosCar.php',
     }).done(function(res){
         $(".articulosTotal").text(res);
         console.log(res);

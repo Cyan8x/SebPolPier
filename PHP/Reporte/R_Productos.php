@@ -29,9 +29,9 @@ function Footer()
 }
 }
 
-require("./../Login/includes/connection.php");
+require("./../Login/includes_login/connection.php");
 
-$sql = 'SELECT productos.*, marca.nombre AS marc, categoria.nombre AS categ, proveedor.nombre AS prov FROM productos INNER JOIN marca ON productos.cod_marca = marca.cod_marca INNER JOIN categoria ON productos.cod_categoria = categoria.cod_categoria INNER JOIN proveedor ON productos.cod_prov = proveedor.cod_prov';
+$sql = 'SELECT productos.*, marcas.marca AS marc, categorias.categoria AS categ, proveedores.proveedor AS prov FROM productos INNER JOIN marcas ON productos.cod_marca = marcas.cod_marca INNER JOIN categorias ON productos.cod_categoria = categorias.cod_categoria INNER JOIN proveedores ON productos.cod_prov = proveedores.cod_prov';
 
 $pdf = new PDF();
 $pdf->AliasNbPages();
@@ -44,8 +44,7 @@ $pdf->Cell(30,5, 'Categoria',1,0,'C',0);
 $pdf->Cell(120,5, 'Nombre',1,0,'C',0);
 $pdf->Cell(20,5, 'Proveedor',1,0,'C',0);
 $pdf->Cell(15,5, 'Stock',1,0,'C',0);
-$pdf->Cell(20,5, 'P. en Dolares',1,0,'C',0);
-$pdf->Cell(20,5, 'P. en Soles',1,1,'C',0);
+$pdf->Cell(20,5, 'Precio',1,1,'C',0);
 foreach ($connection->query($sql) as $result) {
     $pdf->Cell(30,5, $result['cod_producto'],1,0,'C',0);
     $pdf->Cell(20,5, $result['marc'],1,0,'C',0);
@@ -53,8 +52,7 @@ foreach ($connection->query($sql) as $result) {
     $pdf->Cell(120,5, $result['nombre'],1,0,'C',0);
     $pdf->Cell(20,5, $result['prov'],1,0,'C',0);
     $pdf->Cell(15,5, $result['stock'],1,0,'C',0);
-    $pdf->Cell(20,5, $result['precio_dolares'],1,0,'C',0);
-    $pdf->Cell(20,5, $result['precio_soles'],1,1,'C',0);
+    $pdf->Cell(20,5, '$ '.$result['precio'],1,1,'C',0);
 }
 
 $pdf->Output();

@@ -59,7 +59,7 @@ $ham.addEventListener('click', ()=>{
 function totalArticulos() {
     $.ajax({
         method: 'POST',
-        url: './../PHP/Login/includes/articulosCar.php',
+        url: './../PHP/includes_carrito/articulosCar.php',
     }).done(function(res){
         $(".articulosTotal").text(res);
         console.log(res);
