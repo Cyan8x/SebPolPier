@@ -100,15 +100,10 @@ if (!isset($_SESSION['session_admin'])) {
                         <thead>
                             <tr>
                                 <th>Id_Usuario</th>
-                                <th>Usuario</th>
                                 <th>Correo Eletronico</th>
                                 <th>Nombres</th>
                                 <th>Apellidos</th>
                                 <th>Contraseña</th>
-                                <th>DNI</th>
-                                <th>Direccion</th>
-                                <th>Ciudad</th>
-                                <th>Telefono</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -119,17 +114,12 @@ if (!isset($_SESSION['session_admin'])) {
                             ?>
                                 <tr>
                                     <td><?php echo $result['id_user']; ?></td>
-                                    <td><?php echo $result['usuario']; ?></td>
                                     <td><?php echo $result['email']; ?></td>
                                     <td><?php echo $result['nombres']; ?></td>
                                     <td><?php echo $result['apellidos']; ?></td>
                                     <td><?php echo $result['contraseña']; ?></td>
-                                    <td><?php echo $result['dni']; ?></td>
-                                    <td><?php echo $result['direccion']; ?></td>
-                                    <td><?php echo $result['ciudad']; ?></td>
-                                    <td><?php echo $result['telefono']; ?></td>
                                     <td>
-                                        <button class="btn btn-primary btn-small btnEditar" data-id="<?php echo $result['id_user'] ?>" data-usuario="<?php echo $result['usuario'] ?>" data-email="<?php echo $result['email'] ?>" data-nombres="<?php echo $result['nombres'] ?>" data-apellidos="<?php echo $result['apellidos'] ?>" data-contraseña="<?php echo $result['contraseña'] ?>" data-dni="<?php echo $result['dni'] ?>" data-direccion="<?php echo $result['direccion'] ?>" data-ciudad="<?php echo $result['ciudad'] ?>" data-telefono="<?php echo $result['telefono'] ?>" data-toggle="modal" data-target="#modalEditar">
+                                        <button class="btn btn-primary btn-small btnEditar" data-id="<?php echo $result['id_user'] ?>" data-email="<?php echo $result['email'] ?>" data-nombres="<?php echo $result['nombres'] ?>" data-apellidos="<?php echo $result['apellidos'] ?>" data-contraseña="<?php echo $result['contraseña'] ?>" data-toggle="modal" data-target="#modalEditar">
                                             <i class="fa fa-edit"></i>
                                         </button>
                                         <button class="btn btn-danger btn-small btnEliminar" data-id="<?php echo $result['id_user'] ?>" data-toggle="modal" data-target="#modalEliminar">
@@ -160,10 +150,6 @@ if (!isset($_SESSION['session_admin'])) {
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="usuario">Usuario</label>
-                                <input type="text" name="usuario" placeholder="Usuario" id="usuario" class="form-control" required>
-                            </div>
-                            <div class="form-group">
                                 <label for="email">Correo Electronico</label>
                                 <input type="email" name="email" placeholder="Correo Electronico" id="email" class="form-control" required>
                             </div>
@@ -182,22 +168,6 @@ if (!isset($_SESSION['session_admin'])) {
                             <div class="form-group">
                                 <label for="contraseña2">Confirmar Contraseña</label>
                                 <input type="password" name="contraseña2" placeholder="Confirmar Contraseña" id="contraseña2" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="dni">DNI</label>
-                                <input type="number" name="dni" placeholder="DNI" id="dni" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="direccion">Direccion</label>
-                                <input type="text" name="direccion" placeholder="Direccion" id="direccion" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="ciudad">Ciudad</label>
-                                <input type="text" name="ciudad" placeholder="Ciudad" id="ciudad" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="telefono">Telefono</label>
-                                <input type="number" name=" telefono" placeholder="Telefono" id="telefono" class="form-control" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -242,10 +212,6 @@ if (!isset($_SESSION['session_admin'])) {
                         <div class="modal-body">
                             <input type="hidden" name="id_user" placeholder="Id_Usuario" id="id_userEdit" class="form-control" required>
                             <div class="form-group">
-                                <label for="usuarioEdit">Usuario</label>
-                                <input type="text" name="usuario" placeholder="Usuario" id="usuarioEdit" class="form-control" required>
-                            </div>
-                            <div class="form-group">
                                 <label for="emailEdit">Correo Electronico</label>
                                 <input type="email" name="email" placeholder="Correo Electronico" id="emailEdit" class="form-control" required>
                             </div>
@@ -260,22 +226,6 @@ if (!isset($_SESSION['session_admin'])) {
                             <div class="form-group">
                                 <label for="contraseñaEdit">Contraseña</label>
                                 <input type="password" name="contraseña" placeholder="Contraseña" id="contraseñaEdit" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="dniEdit">DNI</label>
-                                <input type="number" name="dni" placeholder="DNI" id="dniEdit" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="direccionEdit">Direccion</label>
-                                <input type="text" name="direccion" placeholder="Direccion" id="direccionEdit" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="ciudadEdit">Ciudad</label>
-                                <input type="text" name="ciudad" placeholder="Ciudad" id="ciudadEdit" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="telefonoEdit">Telefono</label>
-                                <input type="number" name="telefono" placeholder="Telefono" id="telefonoEdit" class="form-control" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -348,15 +298,10 @@ if (!isset($_SESSION['session_admin'])) {
             });
             $(".btnEditar").click(function() {
                 $("#id_userEdit").val($(this).data('id'));
-                $("#usuarioEdit").val($(this).data('usuario'));
                 $("#emailEdit").val($(this).data('email'));
                 $("#nombresEdit").val($(this).data('nombres'));
                 $("#apellidosEdit").val($(this).data('apellidos'));
                 $("#contraseñaEdit").val($(this).data('contraseña'));
-                $("#dniEdit").val($(this).data('dni'));
-                $("#direccionEdit").val($(this).data('direccion'));
-                $("#ciudadEdit").val($(this).data('ciudad'));
-                $("#telefonoEdit").val($(this).data('telefono'));
             });
         });
     </script>

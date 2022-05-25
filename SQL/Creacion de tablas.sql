@@ -7,15 +7,10 @@ USE sebpolpier;
 
 create table usuarios(
 	id_user int auto_increment not null,
-    usuario varchar (100) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null unique,
     email varchar (100) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null unique,
     nombres varchar (100) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null,
     apellidos varchar (100) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null,
     contraseña varchar (255) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null,
-    dni int not null unique,
-    direccion varchar (200) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null,
-    ciudad varchar (100) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null,
-    telefono int not null,
     adminis bit not null,
 	primary key (id_user)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -59,7 +54,8 @@ create table ventas(
 	id_venta int auto_increment not null,
     id_user int not null,
     montoFinal float not null, /* monto final en dolares */
-    fecha_compra datetime not null,    
+    fecha_compra datetime not null,
+    estado varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null,
     primary key (id_venta),
 	foreign key (id_user) references usuarios(id_user)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

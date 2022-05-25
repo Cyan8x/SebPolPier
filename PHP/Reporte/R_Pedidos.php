@@ -42,7 +42,6 @@ $pdf->SetFont('Arial', 'B', 8);
 foreach ($connection->query($sql1) as $result1) {
     $pdf->Cell(8, 5, 'Cod.', 1, 0, 'C', 0);
     $pdf->Cell(17, 5, 'Id_Usuario', 1, 0, 'C', 0);
-    $pdf->Cell(17, 5, 'Usuario', 1, 0, 'C', 0);
     $pdf->Cell(25, 5, 'Apellidos', 1, 0, 'C', 0);
     $pdf->Cell(17, 5, 'Dni', 1, 0, 'C', 0);
     $pdf->Cell(52, 5, 'Direccion', 1, 0, 'C', 0);
@@ -53,7 +52,6 @@ foreach ($connection->query($sql1) as $result1) {
     $pdf->Cell(17, 5, 'Monto Final', 1, 1, 'C', 0);
     $pdf->Cell(8, 5, $result1['id_venta'], 1, 0, 'C', 0);
     $pdf->Cell(17, 5, $result1['id_user'], 1, 0, 'C', 0);
-    $pdf->Cell(17, 5, $result1['usuario'], 1, 0, 'C', 0);
     $pdf->Cell(25, 5, $result1['apellidos'], 1, 0, 'C', 0);
     $pdf->Cell(17, 5, $result1['dni'], 1, 0, 'C', 0);
     $pdf->Cell(52, 5, $result1['direccion'], 1, 0, 'C', 0);

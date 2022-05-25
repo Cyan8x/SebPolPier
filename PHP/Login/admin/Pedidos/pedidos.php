@@ -106,7 +106,7 @@ if (!isset($_SESSION['session_admin'])) {
                                     <h5 class="mb-0">
                                         <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php echo $result1['id_venta'] ?>" aria-expanded="true" aria-controls="collapse<?php echo $result1['id_venta'] ?>">
                                             <?php
-                                            echo $result1['id_venta'] . " - " . $result1['usuario'] . " - " . $result1['fecha_compra'] . " - " . $result1['estado']
+                                            echo "<b>IDVenta: </b>" . $result1['id_venta'] . " - <b>Fecha de la compra: </b>" .$result1['fecha_compra'] . " - <b>Estado: </b>" . $result1['estado']
                                             ?>
                                         </button>
                                     </h5>
@@ -115,13 +115,13 @@ if (!isset($_SESSION['session_admin'])) {
                                 <div id="collapse<?php echo $result1['id_venta'] ?>" class="collapse show" aria-labelledby="heading<?php echo $result1['id_venta'] ?>" data-parent="#accordion">
                                     <div class="card-body">
                                         <p style="font-size: 25px;"><u><b>Datos del Cliente</b>  </u></p>
-                                        <p>Nombres del Cliente: <?php echo $result1['nombres'] ?></p>
-                                        <p>Apellidos del Cliente: <?php echo $result1['apellidos'] ?></p>
-                                        <p>DNI del Cliente: <?php echo $result1['dni'] ?></p>
-                                        <p>Correo Electrónico del Cliente: <?php echo $result1['email'] ?></p>
-                                        <p>Dirección del Cliente: <?php echo $result1['direccion'] ?></p>
-                                        <p>Ciudad del Cliente: <?php echo $result1['ciudad'] ?></p>
-                                        <p>Numero de contacto del Cliente: <?php echo $result1['telefono'] ?></p>
+                                        <p><b>Nombres del Cliente:</b>  <?php echo $result1['nombres'] ?></p>
+                                        <p><b>Apellidos del Cliente:</b>  <?php echo $result1['apellidos'] ?></p>
+                                        <p><b>DNI del Cliente:</b>  <?php echo $result1['dni'] ?></p>
+                                        <p><b>Correo Electrónico del Cliente:</b> <?php echo $result1['email'] ?></p>
+                                        <p><b>Dirección del Cliente:</b>  <?php echo $result1['direccion'] ?></p>
+                                        <p><b>Ciudad del Cliente:</b>  <?php echo $result1['ciudad'] ?></p>
+                                        <p><b>Numero de contacto del Cliente:</b> <?php echo $result1['telefono'] ?></p>
                                         <table class="table">
                                             <thead>
                                                 <tr>
@@ -152,7 +152,7 @@ if (!isset($_SESSION['session_admin'])) {
                                                 ?>
                                             </tbody>
                                         </table>
-                                        <p>Monto total a pagar por el Cliente: <?php echo "$" . number_format($result1['montoFinal'], 2, '.', ',')?></p>
+                                        <p><b>Monto total a pagar por el Cliente: </b><?php echo "$" . number_format($result1['montoFinal'], 2, '.', ',')?></p>
                                     </div>
                                 </div>
                             </div>

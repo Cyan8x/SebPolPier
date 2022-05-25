@@ -122,14 +122,6 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="./../Administradores/administradores.php" class="nav-link">
-            <i class="nav-icon fas fa-user-cog"></i>
-            <p>
-                Administradores
-            </p>
-            </a>
-        </li>
-        <li class="nav-item">
             <a href="./../Principal/logout_admin.php" class="nav-link">
             <i class="nav-icon fas fa-sign-out-alt"></i>
             <p>

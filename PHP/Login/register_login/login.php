@@ -21,22 +21,29 @@
     //SE CREA UNA ESTRUCTURA CONDICIONAL
     if (isset($_POST["login"])) {
         //SI SE LLEGA A RECIBIR UN DATOS AL PRESIONAR UN BOTON CON EL NOMBRE "LOGIN"
-        if (!empty($_POST['usuario']) && !empty($_POST['contraseña'])) {
+        if (!empty($_POST['email']) && !empty($_POST['contraseña'])) {
             //SI LOS CAMPOS RQUERIDOS PARA EL LOGIN DEL USUARIO NO ESTAN VACIOS, SE HACE LAS SIGUIENTE VERIFICACIONES
-            $usuario = $_POST['usuario'];
+            $email = $_POST['email'];
             $contraseña = $_POST['contraseña'];
-            $query = $connection->prepare("SELECT * FROM usuarios WHERE USUARIO=:usuario");
-            $query->bindParam("usuario", $usuario, PDO::PARAM_STR);
+            $query = $connection->prepare("SELECT * FROM usuarios WHERE EMAIL=:email");
+            $query->bindParam("email", $email, PDO::PARAM_STR);
             $query->execute();
             $result = $query->fetch(PDO::FETCH_ASSOC);
+            $usuario = '';
+            $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+            foreach ($connection->query($sql) as $result) {
+                $usuario = $result['nombres'];
+            }
             if (!$result) {
                 echo '<p class = "error">Usuario no existe.</p>';
             } else {
                 if (password_verify($contraseña, $result['contraseña'])) {
                     if ($result['adminis'] == 1) {
+                        $_SESSION['email'] = $email;
                         $_SESSION['session_admin'] = $usuario;
                         header("Location: ../../../../SebPolPier/PHP/Login/admin/Principal/index.php");
                     } else {
+                        $_SESSION['email'] = $email;
                         $_SESSION['session_usuario'] = $usuario;
                         header("Location: ../../../../SebPolPier/PHP/index.php");
                     }
@@ -61,7 +68,7 @@
             <form name="loginform" action="login.php" method="POST">
                 <h1>Login de Usuarios</h1>
                 <div class="div_input">
-                    <input type="text" name="usuario" id="usuario" placeholder="Nombre de Uusuario">
+                    <input type="text" name="email" id="email" placeholder="E-mail">
                 </div>
                 <div class="div_input">
                     <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">

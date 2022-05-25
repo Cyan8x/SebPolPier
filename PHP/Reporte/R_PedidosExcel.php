@@ -13,7 +13,7 @@ $date =  date('j-m-y');
 
 $sheet = $spreadsheet->getActiveSheet();
 
-$sheet->mergeCells('D2:K2');
+$sheet->mergeCells('D2:J2');
 $sheet->setCellValue('D2', 'REPORTE DE PEDIDOS(' . $date . ')');
 $styleArray0 = [
     'alignment' => [
@@ -48,30 +48,28 @@ $var = 4;
 foreach ($connection->query($sql1) as $result1) {
     $sheet->setCellValue('B' . $var, 'COD.');
     $sheet->setCellValue('C' . $var, 'ID_USUARIO');
-    $sheet->setCellValue('D' . $var, 'USUARIO');
-    $sheet->setCellValue('E' . $var, 'APELLIDOS');
-    $sheet->setCellValue('F' . $var, 'DNI');
-    $sheet->setCellValue('G' . $var, 'DIRECCION');
-    $sheet->setCellValue('H' . $var, ' CIUDAD ');
-    $sheet->setCellValue('I' . $var, ' TELEFONO ');
-    $sheet->setCellValue('J' . $var, 'FECH. COMP.');
-    $sheet->setCellValue('K' . $var, 'ESTADO');
-    $sheet->setCellValue('L' . $var, 'MONTO FINAL');
-    $sheet->getStyle('B' . $var . ':L' . $var)->getFont()->setBold(true)->setSize(11);
-    $sheet->getStyle('B' . $var . ':L' . $var)->applyFromArray($styleArray2);
+    $sheet->setCellValue('D' . $var, 'APELLIDOS');
+    $sheet->setCellValue('E' . $var, 'DNI');
+    $sheet->setCellValue('F' . $var, 'DIRECCION');
+    $sheet->setCellValue('G' . $var, ' CIUDAD ');
+    $sheet->setCellValue('H' . $var, ' TELEFONO ');
+    $sheet->setCellValue('I' . $var, 'FECH. COMP.');
+    $sheet->setCellValue('J' . $var, 'ESTADO');
+    $sheet->setCellValue('K' . $var, 'MONTO FINAL');
+    $sheet->getStyle('B' . $var . ':K' . $var)->getFont()->setBold(true)->setSize(11);
+    $sheet->getStyle('B' . $var . ':K' . $var)->applyFromArray($styleArray2);
     $var++;
     $sheet->setCellValue('B' . $var, $result1['id_venta']);
     $sheet->setCellValue('C' . $var, $result1['id_user']);
-    $sheet->setCellValue('D' . $var, $result1['usuario']);
-    $sheet->setCellValue('E' . $var, $result1['apellidos']);
-    $sheet->setCellValue('F' . $var, $result1['dni']);
-    $sheet->setCellValue('G' . $var, $result1['direccion']);
-    $sheet->setCellValue('H' . $var, $result1['ciudad']);
-    $sheet->setCellValue('I' . $var, $result1['telefono']);
-    $sheet->setCellValue('J' . $var, $result1['fecha_compra']);
-    $sheet->setCellValue('K' . $var, $result1['estado']);
-    $sheet->setCellValue('L' . $var, '$ '.$result1['montoFinal']);
-    $sheet->getStyle('B' . $var . ':L' . $var)->getFont()->setSize(10);
+    $sheet->setCellValue('D' . $var, $result1['apellidos']);
+    $sheet->setCellValue('E' . $var, $result1['dni']);
+    $sheet->setCellValue('F' . $var, $result1['direccion']);
+    $sheet->setCellValue('G' . $var, $result1['ciudad']);
+    $sheet->setCellValue('H' . $var, $result1['telefono']);
+    $sheet->setCellValue('I' . $var, $result1['fecha_compra']);
+    $sheet->setCellValue('J' . $var, $result1['estado']);
+    $sheet->setCellValue('K' . $var, '$ '.$result1['montoFinal']);
+    $sheet->getStyle('B' . $var . ':K' . $var)->getFont()->setSize(10);
     $var++;
     $sheet->setCellValue('C' . $var, 'COD. PROD.');
     $sheet->setCellValue('D' . $var, 'IMAGEN');
@@ -100,7 +98,7 @@ foreach ($connection->query($sql1) as $result1) {
         $sheet->setCellValue('I' . $var, $result2['cantidad']);
         $sheet->setCellValue('J' . $var, '$ '.$result2['precio']);
         $sheet->setCellValue('K' . $var, '$ '.$result2['subtotal']);
-        $sheet->getStyle('B' . $var . ':L' . $var)->getFont()->setSize(10);
+        $sheet->getStyle('B' . $var . ':K' . $var)->getFont()->setSize(10);
         $var++;
     }
 }
@@ -114,11 +112,10 @@ $sheet->getColumnDimension('H')->setAutoSize(true);
 $sheet->getColumnDimension('I')->setAutoSize(true);
 $sheet->getColumnDimension('J')->setAutoSize(true);
 $sheet->getColumnDimension('K')->setAutoSize(true);
-$sheet->getColumnDimension('L')->setAutoSize(true);
 
 
-$sheet->getStyle('B4:L' . $var - 1)->applyFromArray($styleArray1);
-$sheet->getStyle('B4:L' . $var)->getFont()->setName('Arial');
+$sheet->getStyle('B4:K' . $var - 1)->applyFromArray($styleArray1);
+$sheet->getStyle('B4:K' . $var)->getFont()->setName('Arial');
 
 $sheet->setTitle('Reporte de Pedidos(' . $date . ')');
 

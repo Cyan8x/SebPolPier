@@ -1,0 +1,282 @@
+.main{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 150px;
+}
+
+/*? FORMULARIO */
+
+.formulario_lisproducts{
+    width: 100%;
+    display: flex;
+}
+
+.formulario, .lisproducts{
+    background: #fff;
+    color: black;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 15px;
+    display: inline-block;
+    height: 100%;
+}
+
+.formulario{
+    flex: 2;
+}
+
+.lisproducts{
+    flex: 1;
+}
+
+.titulo{
+    margin: 0;
+    padding: 0;
+    font-family: GeforceB;
+    color: rgb(34, 111, 173);
+    font-size: 35px;
+}
+
+.error-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.error{
+    background: #ea5555;
+    color: #fff;
+    font-size: 20px;
+    margin: 0 15px;
+    padding: 5px  10px;
+    font-family: GeforceB;
+
+}
+
+.camposform{
+    margin-bottom: 20px;
+}
+
+.camposform p{
+    font-size: 18px;
+    padding: 10px 15px;
+    text-align: justify;
+}
+
+.input{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 0;
+    padding-left: 15px;
+}
+
+.input h3{
+    flex: 1;
+    font-size: 20px;
+    font-family: GeforceB;
+}
+
+.input input{
+    flex: 3;
+    width: 100%;
+    border: none;
+    background: rgb(209, 209, 209);
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.select-tarjeta{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 15px;
+    align-items: center;
+}
+
+.select-tarjeta h3{
+    flex: 1;
+    font-size: 20px;
+    font-family: GeforceB;
+}
+
+.select{
+    flex: 3;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.select div{
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.select div label i{
+    font-size: 80px;
+    padding-left: 5px;
+}
+
+.venta-div{
+    width: 100%;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.venta-div button{
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 15px 30px;
+    background: linear-gradient(to right, #000000, rgb(34, 111, 173));
+    font-family: GeforceB;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
+}
+
+.venta-div button:hover{
+    background: linear-gradient(to right, rgb(34, 111, 173), #000000);
+}
+
+.venta-div button:active{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/*? LISTA DE PRODUCTOS */
+
+.total, .productos{
+    padding: 10px 15px;
+}
+
+.total h2, .productos h3{
+    font-family: GeforceB;
+    color: #000000;
+}
+
+.total h2 span{
+    color: rgb(13, 128, 13);
+}
+
+.productos{
+    cursor: pointer;
+    display: flex;
+}
+
+.productos h3, .productos i{
+    font-size: 20px;
+}
+
+.arrow-up,.arrow-down{
+    padding-left: 10px;
+    color: rgb(34, 111, 173);
+}
+
+.arrow-up{
+    display: none;
+}
+
+.hide-down{
+    display: none;
+}
+
+.show-up{
+    display: block;
+}
+
+.lista{
+    display: none;
+}
+
+.lista-show{
+    display: block;
+}
+
+.listProducts{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px 0;
+}
+
+.img{
+    flex: 1;
+}
+
+.datos{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.datos div p, .datos div h3 span, .datos div h3 span{
+    font-family: GeforceB;
+}
+
+.datos div p{
+    color: rgb(34, 111, 173);
+}
+
+/*? RESPONSIVE */
+
+@media (max-width: 1100px){
+    .formulario_lisproducts{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 700px){
+    .input{
+        flex-direction: column;
+        align-items: baseline;
+    }
+}
+
+@media (max-width: 500px){
+    .main{
+        width: 100%;
+    }
+
+    .error{
+        font-size: 15px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 400px){
+    .formulario, .lisproducts{
+        padding: 15px;
+    }
+
+    .select-tarjeta{
+        flex-direction: column;
+    }
+
+    .input h3, .input input{
+        font-size: 18px;
+    }
+
+    .titulo{
+        font-size: 25px;
+    }
+
+    .camposform p{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 300px){
+    .listProducts{
+        flex-direction: column;
+        border-bottom: 2px solid #ea5555;
+    }
+}

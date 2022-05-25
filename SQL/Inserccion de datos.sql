@@ -1,9 +1,9 @@
 -- activamos la bd
 USE sebpolpier;
 
-insert into usuarios (usuario, email, nombres, apellidos, contraseña, dni, direccion, ciudad, telefono, adminis) values 
-('Cyan8x','u19219126@utp.edu.pe','Leonardo', 'Salinas', '$2y$10$z353a9blUGwQ4ihQM05uJO5/MLsUG3PtxmBDYewX.zBwNXcjdc7Am', 75440317, 'Jr. Filpendulas 347', 'Lima', 972935798, 1),
-('Virtex123','leonardo-tuskater@hotmail.com','Nicolas', 'Salinas', '$2y$10$3Jgz3RtsiDmz6ZrWcN0.pOxOnJm0rOZvFISl.ju7OL4SamzjWVrYK', 75440324, 'Jr. Filpendulas 347', 'Lima', 979591794, 0);
+insert into usuarios (email, nombres, apellidos, contraseña, adminis) values 
+('u19219126@utp.edu.pe','Leonardo', 'Salinas', '$2y$10$z353a9blUGwQ4ihQM05uJO5/MLsUG3PtxmBDYewX.zBwNXcjdc7Am', 1),
+('leonardo-tuskater@hotmail.com','Nicolas', 'Salinas', '$2y$10$3Jgz3RtsiDmz6ZrWcN0.pOxOnJm0rOZvFISl.ju7OL4SamzjWVrYK', 0);
 
 insert into marcas values ('M001AOR', 'AORUS'), ('M002ASR', 'ASROCK'), ('M003ASU', 'ASUS'), ('M004GIG', 'GIGABYTE'), ('M005MSI', 'MSI'), ('M006AMD', 'AMD'), ('M007INT', 'INTEL');
 

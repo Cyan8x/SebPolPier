@@ -93,7 +93,7 @@ if (isset($_SESSION['session_usuario'])) {
     include("includes/metadatos.php")
     ?>
     <!-- Personal -->
-    <link rel="stylesheet" href="../CSS/carrito6.css">
+    <link rel="stylesheet" href="../CSS/carrito7.css">
     <title>Carrito</title>
 </head>
 <!-- ESTRUCTURA DEL CARRITO DE COMPRAS -->
